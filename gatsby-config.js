@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -30,5 +32,22 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        queryLimit: 1000, // Default to 100
+        contentTypes: [`category`, `user`, `product`, `order`],
+        //If using single types place them in this array.
+        singleTypes: [`homepage`, `privacy-policy`, `terms-of-use`],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        loginData: {
+          identifier: process.env.API_EMAIL,
+          password: process.env.API_PASSWORD,
+        },
+      },
+    },
+    `gatsby-plugin-sass`
   ],
 }
