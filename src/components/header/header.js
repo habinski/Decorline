@@ -1,44 +1,41 @@
-// import { Link } from "gatsby"
-// import PropTypes from "prop-types"
-// import React from "react"
-// import s from './header.scss'
+import React from "react"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import Image from "gatsby-image"
+
+import Logo from '../../images/logos/inline-logo.svg'
+import headerStyle from './header.module.scss'
 
 
-// const Header = ({ }) => (
-//   <header>
-//   </header>
-// )
+const query = graphql`
+  query {
+    allStrapiCategory {
+      edges {
+        node {
+          strapiId
+          category
+		  slug
+        }
+      }
+    }
+  }
+`;
 
-// export default Header
 
-// import React from 'react';
-
-// import { StaticQuery, graphql } from 'gatsby';
-
-// const query = graphql`
-//   query {
-//     allStrapiCategories {
-//       edges {
-//         node {
-//           strapiId
-//           category
-//         }
-//       }
-//     }
-//   }
-// `;
-
-// const Header = () => (
-//   <StaticQuery
-//     query={query}
-//     render={data => (
-//       <ul>
-//         {data.allStrapiCategories.edges.map(c => (
-//           <li key={c.node.strapiId}>{c.node.category}</li>
-//         ))}
-//       </ul>
-//     )}
-//   />
-// );
-
-// export default Header;
+const Header = () => {
+	console.log(headerStyle.link)
+	const data = useStaticQuery(query)
+	const categories = data.allStrapiCategory.edges.map(c => {
+		return (
+			<Link activeClassName="" to={`/category/${c.node.slug}`} key={c.node.strapiId} className={headerStyle.link}>{c.node.category}</Link>
+		)
+	})
+	return (
+		<header>
+			<Logo />
+			<div className={headerStyle.categories}>
+				{categories}
+			</div>
+		</header>
+	)
+}
+export default Header

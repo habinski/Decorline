@@ -6,7 +6,7 @@ module.exports = {
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
-  plugins: [
+  plugins: [`gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -36,7 +36,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
+        apiURL: process.env.API_URL, // || "http://localhost:1337"
         queryLimit: 1000, // Default to 100
         contentTypes: [
           "category",
@@ -50,12 +50,20 @@ module.exports = {
           "terms-of-use"
         ],
         // Possibility to login with a strapi user, when content types are not publically available (optional).
-        loginData: {
-          identifier: process.env.API_EMAIL,
-          password: process.env.API_PASSWORD,
-        },
+        // loginData: {
+        //   identifier: process.env.API_EMAIL,
+        //   password: process.env.API_PASSWORD,
+        // },
       },
     },
-    `gatsby-plugin-sass`
+
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /images/
+        }
+      }
+    }
   ],
 }

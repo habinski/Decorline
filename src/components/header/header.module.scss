@@ -1,0 +1,15 @@
+header {
+    padding: 7px;
+    background-color: #131313;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    /* width: 100vw; */
+    .link {
+        text-decoration: none;
+    }
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 1fr);
+        gap: 14px;
+    }
+}
