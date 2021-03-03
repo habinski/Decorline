@@ -1,10 +1,10 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
 
 import Logo from '../../images/logos/inline-logo.svg'
+import CardIcon from '../../images/icons/card.svg'
+import variables from '../../styles/_variables.scss'
 import headerStyle from './header.module.scss'
-
 
 const query = graphql`
   query {
@@ -34,6 +34,7 @@ const Header = () => {
 			<Logo />
 			<div className={headerStyle.categories}>
 				{categories}
+				<Link to='/cart'><CardIcon /></Link>
 			</div>
 		</header>
 	)
