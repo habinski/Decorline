@@ -3,7 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 
 import Logo from '../../images/logos/inline-logo.svg'
 import CardIcon from '../../images/icons/card.svg'
-import variables from '../../styles/_variables.scss'
+
 import headerStyle from './header.module.scss'
 
 const query = graphql`
@@ -22,7 +22,7 @@ const query = graphql`
 
 
 const Header = () => {
-	console.log(headerStyle.link)
+
 	const data = useStaticQuery(query)
 	const categories = data.allStrapiCategory.edges.map(c => {
 		return (

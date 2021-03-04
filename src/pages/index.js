@@ -1,21 +1,40 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
 
-import Layout from "../components/layout"
-import Image from "../components/image"
+import { useStaticQuery, graphql } from "gatsby"
+import Img from 'gatsby-image'
+
 import SEO from "../components/seo"
+import Layout from "../components/layout"
 
-// require("dotenv").config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// })
+// import PromotionsGallery from '../components/homepage/promotionsGallery'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Decorline</h1>
-    {/* <h1>{process.env.GATSBY_TEST_ENV}</h1> */}
+const query = graphql`
+{
+  hp: strapiHomepage {
+    banner {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
+        id
+      }
+    }
+  }
+}
+`;
 
-  </Layout>
-)
 
-export default IndexPage
+const Homepage = () => {
+  const data = useStaticQuery(query)
+  console.log(data)
+
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Img fluid={data.hp.banner.childImageSharp.fluid} />
+
+    </Layout>)
+}
+
+export default Homepage
