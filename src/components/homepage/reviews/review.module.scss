@@ -1,0 +1,29 @@
+.review {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 14px;
+    .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+    }
+    .name {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0;
+    }
+    .work {
+        margin: 0;
+        font-weight: normal;
+        font-size: 14px;
+    }
+    p {
+        margin-top: 12px;
+        font-weight: normal;
+        font-size: 18px;
+        width: 100%;
+    }
+    svg {
+        margin-top: 8px;
+    }
+}

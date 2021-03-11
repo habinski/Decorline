@@ -1,0 +1,44 @@
+@import '../../../styles/_variables';
+.cadsRow {
+    margin: 14vh 0;
+    .quote {
+        margin: 0 7vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0px;
+        font-size: 18px;
+        color: $dark;
+        h2 {
+            font-weight: 600;
+        }
+        .name {
+            color: $dominant;
+            font-weight: 800;
+        }
+        a {
+            text-decoration: none;
+            color: $text-gray;
+            font-weight: 400;
+        }
+    }
+    .cards {
+        padding: 7vh 7vh;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        flex-direction: row;
+        // overflow-x: scroll;
+        // overflow-y: hidden;
+        gap: 4vh;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        &>:last-child {
+            margin-right: 7vh;
+        }
+    }
+}

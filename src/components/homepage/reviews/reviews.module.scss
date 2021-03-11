@@ -1,0 +1,14 @@
+@import '../../../styles/_variables';
+.reviewsBlock {
+    margin: 0 14vh;
+    h2 {
+        color: $dominant;
+        text-align: center;
+    }
+    .reviews {
+        margin-top: 7vh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 100px;
+    }
+}
