@@ -1,6 +1,5 @@
 import React from 'react'
-
-import Img from "gatsby-image";
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Star from '../../../images/icons/star.svg'
 
@@ -11,7 +10,7 @@ const Review = (review) => {
 
 	return (
 		<div className={reviewDiv}>
-			<Img className={avatar} fluid={review.photo.childImageSharp.fluid} />
+			<GatsbyImage className={avatar} image={review.photo.childImageSharp.gatsbyImageData} />
 			<div>
 				<h4 className={personName}>{review.name}</h4>
 				<h5 className={work}>{review.work}</h5>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useStaticQuery, graphql } from "gatsby"
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import SEO from "../components/seo"
 import Layout from "../components/layout"
@@ -16,20 +16,14 @@ const query = graphql`
   hp: strapiHomepage {
     banner {
       childImageSharp {
-        fluid(maxWidth: 1920) {
-          ...GatsbyImageSharpFluid
-        }
-        id
+        gatsbyImageData(layout: FULL_WIDTH, aspectRatio: 3.1)
       }
     }
     about {
       about
       image {
         childImageSharp {
-          fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid
-          }
-          id
+          gatsbyImageData(layout: CONSTRAINED, width: 720)
         }
       }
     }
@@ -41,9 +35,7 @@ const query = graphql`
       id
       photo {
         childImageSharp {
-          fluid(maxWidth: 50) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 100)
         }
       }
     }
@@ -70,9 +62,8 @@ fragment productsFields on StrapiProduct {
   title
   cover {
     childImageSharp {
-      fixed(width: 500) {
-        ...GatsbyImageSharpFixed
-      }
+      gatsbyImageData(layout: CONSTRAINED, height: 1000)
+      id
     }
   }
 }
@@ -88,7 +79,7 @@ const Homepage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Img fluid={data.hp.banner.childImageSharp.fluid} />
+      <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} />
       <CardRow cards={data.ldsp.edges} name="ЛДСП" slug='ldsp' />
       <Rewiews reviews={data.hp.reviews} />
     </Layout>)

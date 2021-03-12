@@ -1,6 +1,6 @@
 import React from 'react'
 import gatsby, { Link } from 'gatsby'
-import Img from 'gatsby-image'
+
 import Card from '../../CardItem/cardItem'
 import { cardsRowDiv, quote, categoryName, cardsDiv } from './cardRow.module.scss'
 
