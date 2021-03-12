@@ -37,8 +37,10 @@
         &::-webkit-scrollbar {
             display: none;
         }
-        &>:last-child {
-            margin-right: 7vh;
+        &:before,
+        &:after {
+            content: '';
+            width: 10px;
         }
     }
 }

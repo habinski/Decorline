@@ -5,7 +5,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { cardboard, cover, title, info, price } from './cardItem.module.scss'
 
 const Card = ({ card }) => {
-	console.log(cover)
+
 	return (
 		<Link to={`${card.node.category.slug}/${card.node.slug}`} className={cardboard}>
 			<GatsbyImage image={card.node.cover.childImageSharp.gatsbyImageData} className={cover} />

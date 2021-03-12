@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Logo from '../../images/logos/inline-logo.svg'
 import CardIcon from '../../images/icons/card.svg'
 
-import { link, categoriesDiv } from './header.module.scss'
+import { logo, link, categoriesDiv } from './header.module.scss'
 
 const query = graphql`
   query {
@@ -31,7 +31,7 @@ const Header = () => {
 	})
 	return (
 		<header>
-			<Logo />
+			<Logo className={logo} />
 			<div className={categoriesDiv}>
 				{categories}
 				<Link to='/cart'><CardIcon /></Link>
