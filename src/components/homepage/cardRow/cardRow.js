@@ -2,7 +2,7 @@ import React from 'react'
 import gatsby, { Link } from 'gatsby'
 
 import Card from '../../CardItem/cardItem'
-import { cardsRowDiv, quote, categoryName, cardsDiv } from './cardRow.module.scss'
+import { cardsRowDiv, quote, categoryName, cardsDiv, carousel } from './cardRow.module.scss'
 
 const CardRow = ({ cards, name, slug }) => {
 	const cardsRow = cards.map(card => {
@@ -16,7 +16,9 @@ const CardRow = ({ cards, name, slug }) => {
 				<h2>Ознайомтеся з каталогом <Link to={`cards/${slug}`} className={categoryName}>{name}</Link></h2>
 				<Link to={`cards/${slug}`}>Усі</Link></div>
 			<div className={cardsDiv}>
-				{cardsRow}
+				<div className={carousel}>
+					{cardsRow}
+				</div>
 			</div>
 		</div>
 	)

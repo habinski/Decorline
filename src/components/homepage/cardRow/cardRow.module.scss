@@ -24,23 +24,27 @@
         }
     }
     .cardsDiv {
-        padding: 7vh 7vh;
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        flex-direction: row;
         // overflow-x: scroll;
         // overflow-y: hidden;
-        gap: 4vh;
         -webkit-overflow-scrolling: touch;
+        overflow-x: auto;
         scroll-snap-type: x proximity;
         &::-webkit-scrollbar {
             display: none;
         }
-        &:before,
-        &:after {
-            content: '';
-            width: 10px;
+        .carousel {
+            display: flex;
+            width: max-content;
+            padding: 7vh 7vh;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            gap: 7vh;
+            &:before,
+            &:after {
+                content: ' ';
+                width: 20px;
+                // background-color: red;
+            }
         }
     }
 }
