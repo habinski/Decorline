@@ -1,4 +1,5 @@
-.card {
+@import '../../styles/_variables';
+.cardboard {
     flex: 0 0 auto;
     width: 300px;
     height: 401px;
@@ -8,7 +9,7 @@
     // align-items: center;
     padding: 12px;
     text-decoration: none;
-    color: #000;
+    color: $dark;
     box-shadow: 0px 4px 4px rgba(70, 70, 70, 0.1), 0px 12px 18px rgba(0, 0, 0, 0.05);
     border-radius: 12px;
     .cover {

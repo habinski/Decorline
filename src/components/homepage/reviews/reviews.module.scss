@@ -1,11 +1,11 @@
 @import '../../../styles/_variables';
-.reviewsBlock {
+.reviewsContainer {
     margin: 0 14vh;
     h2 {
         color: $dominant;
         text-align: center;
     }
-    .reviews {
+    .reviewsDiv {
         margin-top: 7vh;
         display: grid;
         grid-template-columns: repeat(3, 1fr);

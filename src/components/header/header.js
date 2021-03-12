@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Logo from '../../images/logos/inline-logo.svg'
 import CardIcon from '../../images/icons/card.svg'
 
-import headerStyle from './header.module.scss'
+import { link, categoriesDiv } from './header.module.scss'
 
 const query = graphql`
   query {
@@ -26,13 +26,13 @@ const Header = () => {
 	const data = useStaticQuery(query)
 	const categories = data.allStrapiCategory.edges.map(c => {
 		return (
-			<Link activeClassName="" to={`/category/${c.node.slug}`} key={c.node.strapiId} className={headerStyle.link}>{c.node.category}</Link>
+			<Link activeClassName="" to={`/category/${c.node.slug}`} key={c.node.strapiId} className={link}>{c.node.category}</Link>
 		)
 	})
 	return (
 		<header>
 			<Logo />
-			<div className={headerStyle.categories}>
+			<div className={categoriesDiv}>
 				{categories}
 				<Link to='/cart'><CardIcon /></Link>
 			</div>

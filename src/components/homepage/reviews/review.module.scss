@@ -1,4 +1,4 @@
-.review {
+.reviewDiv {
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 14px;
@@ -7,7 +7,7 @@
         height: 50px;
         border-radius: 100%;
     }
-    .name {
+    .personName {
         font-size: 18px;
         font-weight: bold;
         margin: 0;
@@ -25,5 +25,10 @@
     }
     svg {
         margin-top: 8px;
+    }
+    .stars {
+        svg {
+            fill: red;
+        }
     }
 }

@@ -1,17 +1,17 @@
 import React from 'react'
 
 import Review from './review'
-import s from './reviews.module.scss'
+import { reviewsContainer, reviewsDiv } from './reviews.module.scss'
 
 const Rewiews = ({ reviews }) => {
-	console.log(reviews)
+
 	const reviewsBlock = reviews.map(review => {
 		return <Review review={review} />
 	})
 	return (
-		<div className={s.reviewsBlock}>
+		<div className={reviewsContainer}>
 			<h2>Відгуки наших клієнтів</h2>
-			<div className={s.reviews}>
+			<div className={reviewsDiv}>
 				{reviewsBlock}
 			</div>
 		</div>

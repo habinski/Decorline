@@ -2,16 +2,16 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
-import style from './cardItem.module.scss'
+import { cardboard, cover, title, info, price } from './cardItem.module.scss'
 
-console.log(style)
 const Card = ({ card }) => {
+	console.log(cover)
 	return (
-		<Link to={`${card.node.category.slug}/${card.node.slug}`} className={style.card}>
-			<Img fluid={card.node.cover.childImageSharp.fixed} className={style.cover} />
-			<h2 className={style.title}>{card.node.title}</h2>
-			<div className={style.info}>
-				<p className={style.price}>{card.node.price + ' ₴'}</p>
+		<Link to={`${card.node.category.slug}/${card.node.slug}`} className={cardboard}>
+			<Img fluid={card.node.cover.childImageSharp.fixed} className={cover} />
+			<h2 className={title}>{card.node.title}</h2>
+			<div className={info}>
+				<p className={price}>{card.node.price + ' ₴'}</p>
 			</div>
 		</Link>
 	)

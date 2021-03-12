@@ -1,5 +1,5 @@
 @import '../../../styles/_variables';
-.cadsRow {
+.cardsRowDiv {
     margin: 14vh 0;
     .quote {
         margin: 0 7vh;
@@ -13,7 +13,7 @@
         h2 {
             font-weight: 600;
         }
-        .name {
+        .categoryName {
             color: $dominant;
             font-weight: 800;
         }
@@ -23,7 +23,7 @@
             font-weight: 400;
         }
     }
-    .cards {
+    .cardsDiv {
         padding: 7vh 7vh;
         display: flex;
         flex-wrap: nowrap;
