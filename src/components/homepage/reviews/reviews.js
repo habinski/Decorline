@@ -9,12 +9,12 @@ const Rewiews = ({ reviews }) => {
 		return <Review review={review} />
 	})
 	return (
-		<div className={reviewsContainer}>
+		<section className={reviewsContainer}>
 			<h2>Відгуки наших клієнтів</h2>
 			<div className={reviewsDiv}>
 				{reviewsBlock}
 			</div>
-		</div>
+		</section>
 	)
 }
 

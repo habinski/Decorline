@@ -24,8 +24,6 @@
         }
     }
     .cardsDiv {
-        // overflow-x: scroll;
-        // overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
         overflow-x: auto;
         scroll-snap-type: x proximity;

@@ -11,7 +11,7 @@ const CardRow = ({ cards, name, slug }) => {
 	console.log(cards)
 
 	return (
-		<div className={cardsRowDiv}>
+		<section className={cardsRowDiv}>
 			<div className={quote}>
 				<h2>Ознайомтеся з каталогом <Link to={`cards/${slug}`} className={categoryName}>{name}</Link></h2>
 				<Link to={`cards/${slug}`}>Усі</Link></div>
@@ -20,7 +20,7 @@ const CardRow = ({ cards, name, slug }) => {
 					{cardsRow}
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

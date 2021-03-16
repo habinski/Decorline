@@ -1,0 +1,15 @@
+.aboutSection {
+    margin: 15vh 10vw;
+    h2 {
+        text-align: center;
+    }
+    .aboutContent {
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5vw;
+        p {
+            font-weight: 500;
+        }
+    }
+}

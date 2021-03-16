@@ -1,0 +1,55 @@
+@import '../../styles/_variables';
+footer {
+    padding: 54px 100px 24px;
+    background-color: $dark;
+    display: grid;
+    gap: 24px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 34px;
+    .logo {
+        // height: 350px;
+        // height: min-content;
+        display: grid;
+        align-self: center;
+        justify-self: center;
+    }
+    .items {
+        // justify-self: center;
+        height: max-content;
+        width: max-content;
+        display: grid;
+        grid-auto-columns: auto;
+        gap: 16px;
+        // justify-self: start;
+        h5 {
+            color: $text-gray;
+            padding: 0;
+        }
+        .items {
+            gap: 10px;
+        }
+        a {
+            font-family: Montserrat;
+            text-decoration: none;
+            color: $text-white;
+            font-weight: normal;
+            font-size: 14px;
+        }
+    }
+}
+
+.copyright {
+    text-align: center;
+    padding: 14px 0 0;
+    p {
+        font-family: Montserrat;
+        text-decoration: none;
+        color: $text-white;
+        font-weight: normal;
+        font-size: 14px;
+    }
+}

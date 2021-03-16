@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 
 import CardRow from '../components/homepage/cardRow/cardRow'
+import About from '../components/homepage/about/About'
 import Rewiews from '../components/homepage/reviews/reviews'
 
 // import PromotionsGallery from '../components/homepage/promotionsGallery'
@@ -35,7 +36,7 @@ const query = graphql`
       id
       photo {
         childImageSharp {
-          gatsbyImageData(width: 100)
+          gatsbyImageData(width: 140)
         }
       }
     }
@@ -62,7 +63,7 @@ fragment productsFields on StrapiProduct {
   title
   cover {
     childImageSharp {
-      gatsbyImageData(layout: CONSTRAINED, height: 1000)
+      gatsbyImageData(layout: CONSTRAINED, height: 1920)
       id
     }
   }
@@ -73,7 +74,7 @@ fragment productsFields on StrapiProduct {
 
 const Homepage = () => {
   const data = useStaticQuery(query)
-  console.log(data.hp.reviews)
+  console.log(data.hp.about)
 
 
   return (
@@ -82,6 +83,7 @@ const Homepage = () => {
       <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} />
       <CardRow cards={data.ldsp.edges} name="ЛДСП" slug='ldsp' />
       <Rewiews reviews={data.hp.reviews} />
+      <About about={data.hp.about} />
     </Layout>)
 }
 
