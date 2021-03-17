@@ -11,4 +11,14 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 100px;
     }
+    @media(max-width: 650px) {
+        .reviewsDiv {
+            grid-template-columns: 1fr;
+        }
+    }
+    @media(max-width: 1056px) {
+        .reviewsDiv {
+            grid-template-columns: 2fr;
+        }
+    }
 }

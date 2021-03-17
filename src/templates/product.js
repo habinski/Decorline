@@ -40,10 +40,10 @@ query ProductQuery($id: Int!) {
 
 const Product = ({ data }, location) => {
 	// const data = useStaticQuery(query)
-	console.log(data)
+	const { title } = data.products
 	return (
 		<Layout>
-			<h1>hm</h1>
+			<h1>{title}</h1>
 		</Layout>
 	)
 }

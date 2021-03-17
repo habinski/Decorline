@@ -2,7 +2,7 @@
 .cardsRowDiv {
     margin: 14vh 0;
     .quote {
-        margin: 0 7vh;
+        margin: 0 $side-white-space;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -21,6 +21,9 @@
             text-decoration: none;
             color: $text-gray;
             font-weight: 400;
+            // display: flex;
+            align-self: center;
+            // justify-self: center;
         }
     }
     .cardsDiv {

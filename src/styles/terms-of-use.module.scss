@@ -1,0 +1,17 @@
+@import './_variables';
+.terms {
+    margin: 14vh 100px;
+    .title {
+        text-align: center;
+    }
+    .actualization {
+        text-align: center;
+        color: $text-gray;
+    }
+    .text {
+        h1,
+        h2 {
+            text-align: center;
+        }
+    }
+}

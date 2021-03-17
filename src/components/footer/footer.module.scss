@@ -53,3 +53,18 @@ footer {
         font-size: 14px;
     }
 }
+
+@media(max-width: 992px) {
+    .content {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+@media(max-width: 650px) {
+    .content {
+        // justify-content: center;
+        align-content: center;
+        // align-self: center;
+        grid-template-columns: 1fr;
+    }
+}

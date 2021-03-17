@@ -13,8 +13,8 @@ const CardRow = ({ cards, name, slug }) => {
 	return (
 		<section className={cardsRowDiv}>
 			<div className={quote}>
-				<h2>Ознайомтеся з каталогом <Link to={`cards/${slug}`} className={categoryName}>{name}</Link></h2>
-				<Link to={`cards/${slug}`}>Усі</Link></div>
+				<h2>Ознайомтеся з каталогом <Link to={`${slug}`} className={categoryName}>{name}</Link></h2>
+				<Link to={`${slug}`}>Усі</Link></div>
 			<div className={cardsDiv}>
 				<div className={carousel}>
 					{cardsRow}

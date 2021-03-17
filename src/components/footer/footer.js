@@ -32,7 +32,7 @@ const Footer = () => {
 	return (
 		<footer>
 			<div className={content}>
-				<Logo className={logo} />
+				<Link className={logo} to='/'><Logo /></Link>
 				<div className={items}>
 					<h5>Компанія</h5>
 					<div className={items}>
