@@ -7,11 +7,7 @@
     flex-direction: column;
     justify-content: center;
     // align-items: center;
-    padding: 12px;
-    text-decoration: none;
-    color: $dark;
-    box-shadow: 0px 4px 4px rgba(70, 70, 70, 0.1), 0px 12px 18px rgba(0, 0, 0, 0.05);
-    border-radius: 12px;
+    @include card;
     .cover {
         height: 100%;
         width: 100%;
@@ -30,11 +26,5 @@
     }
     .price {
         font-size: 16px;
-    }
-    transition: 0.3s ease-in-out;
-    &:hover {
-        z-index: 2;
-        transform: scale(1.05);
-        box-shadow: 0px 8px 8px rgba(70, 70, 70, 0.1), 0px 12px 18px rgba(0, 0, 0, 0.05);
     }
 }

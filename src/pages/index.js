@@ -10,6 +10,8 @@ import CardRow from '../components/homepage/cardRow/cardRow'
 import About from '../components/homepage/about/About'
 import Rewiews from '../components/homepage/reviews/reviews'
 
+
+import Search from '../components/header/search'
 // import PromotionsGallery from '../components/homepage/promotionsGallery'
 
 const query = graphql`
@@ -80,6 +82,7 @@ const Homepage = () => {
   return (
     <Layout>
       <SEO title="Home" />
+      {/* <Search /> */}
       <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} />
       <CardRow cards={data.ldsp.edges} name="ЛДСП" slug='ldsp' />
       <Rewiews reviews={data.hp.reviews} />

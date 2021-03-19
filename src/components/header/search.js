@@ -1,8 +1,11 @@
 import React, { useState } from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+// import Axios from "axios"
+// import * as JsSearch from "js-search"
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { Link, graphql, useStaticQuery } from "gatsby"
+import { searchBlock, searchItemResult, itemCover, itemTitle, results, openSearch, SearchBtn } from './search.module.scss'
 
 import SearchIcon from '../../images/icons/SearchIcon.svg'
-
 const query = graphql`
 {
 	allStrapiProduct {
@@ -12,11 +15,12 @@ const query = graphql`
 		  title
 		  slug
 		  category {
+			  slug
 			category
 		  }
 		  cover {
 			childImageSharp {
-			  gatsbyImageData
+				gatsbyImageData(layout: CONSTRAINED, height: 500)
 			}
 		  }
 		  price
@@ -24,108 +28,58 @@ const query = graphql`
 	  }
 	}
   }
-`
+  `
 
 const Search = () => {
 	const data = useStaticQuery(query)
-	console.log(data)
-	// const { data } = props
-	const allItems = data.allStrapiProduct.edges
-
-	const emptyQuery = ""
-
+	const allProducts = data.allStrapiProduct.edges
+	const [searchToggle, setSearchToggle] = useState(false)
 	const [state, setState] = useState({
-		filteredData: [],
-		query: emptyQuery,
-	})
-
+		filteredProducts: [],
+		query: "",
+	});
 	const handleInputChange = event => {
-		console.log(event.target.value)
-		const query = event.target.value
-		// const { data } = props
+		const query = event.target.value;
+		const filteredProducts = allProducts.filter(poduct => {
+			const { title, category } = poduct.node;
 
-		const products = data.allStrapiProduct.edges || []
-
-		const filteredData = products.filter(product => {
-			const { description, title, tags } = product.node.frontmatter
 			return (
-				description.toLowerCase().includes(query.toLowerCase()) ||
-				title.toLowerCase().includes(query.toLowerCase()) ||
-				(tags &&
-					tags
-						.join("")
-						.toLowerCase()
-						.includes(query.toLowerCase()))
+				title.toLowerCase().includes(query.toLowerCase())
 			)
-		})
-
+		});
 		setState({
 			query,
-			filteredData,
-		})
-	}
-
-	const { filteredData, query } = state
-	const hasSearchResults = filteredData && query !== emptyQuery
-	const products = hasSearchResults ? filteredData : allItems
-
+			filteredProducts,
+		});
+	};
+	const products = state.query ? state.filteredProducts : allProducts;
+	console.log(products)
 	return (
-		<div>
-			<h1 style={{ textAlign: `center` }}>Writing</h1>
+		<>
+			<SearchIcon className={SearchBtn} onClick={() => setSearchToggle(!searchToggle)} />
 
-			<div className="searchBox">
+			<div className={`${searchBlock} ${searchToggle ? openSearch : ''}`}>
 				<input
-					className="searchInput"
 					type="text"
 					aria-label="Search"
-					placeholder="Type to filter products..."
+					placeholder="Search products"
+					value={state.query}
 					onChange={handleInputChange}
 				/>
+				<div className={results}>
+					{
+						products.map(product => {
+							const { slug, category, cover, title } = product.node
+							return (
+								<Link to={`${category.slug}/${slug}`} className={searchItemResult}>
+									<GatsbyImage className={itemCover} image={cover.childImageSharp.gatsbyImageData} />
+									<p className={itemTitle}>{title}</p>
+								</Link>
+							)
+						})}
+				</div>
 			</div>
-
-			{products.map(({ node }) => {
-				const { category } = node.category
-				const { title, slug } = node
-				return (
-					<article key={slug}>
-						<header>
-							<h2>
-								<Link to={`${category}/${slug}`}>{title}</Link>
-							</h2>
-						</header>
-						<hr />
-					</article>
-				)
-			})}
-		</div>
+		</>
 	)
 }
-
-
-
-
 export default Search
-
-
-
-//   query {
-//     allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
-//       edges {
-//         node {
-//           excerpt(pruneLength: 200)
-//           id
-//           frontmatter {
-//             title
-//             description
-//             date(formatString: "MMMM DD, YYYY")
-
-//             tags
-//           }
-
-//           fields {
-//             slug
-//           }
-//         }
-//       }
-//     }
-//   }

@@ -1,0 +1,59 @@
+@import '../../styles/_variables';
+.searchBlock {
+    @include sideMenu;
+    right: 0;
+    input {
+        margin: 25vh 0 5vh;
+        border-radius: 12px;
+        color: $dark;
+        font-size: 14px;
+        padding: 12px;
+        width: 80%;
+        max-width: 720px;
+    }
+    left: -105vw;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10vh;
+    flex-wrap: nowrap;
+    height: 90%;
+    // overflow-y: visible;
+    // position: fixed;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.searchItemResult {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 200px;
+    justify-items: center;
+    width: 80%;
+    max-width: 720px;
+    text-decoration: none;
+    @include card;
+    .itemCover {
+        border-radius: 12px;
+    }
+    .itemTitle {
+        justify-self: center;
+        color: $dark;
+        margin: auto;
+    }
+}
+
+.openSearch {
+    left: 0;
+}
+
+.SearchBtn {
+    z-index: 110;
+}
