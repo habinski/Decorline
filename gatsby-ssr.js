@@ -1,7 +1,4 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+// import ReduxWrapper from './redux-provider-wrapper'
 
-// You can delete this file if you're not using it
+// export const wrapRootElement = ReduxWrapper
+export { default as wrapRootElement } from './src/state/CartProvider';

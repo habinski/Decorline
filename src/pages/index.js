@@ -10,9 +10,8 @@ import CardRow from '../components/homepage/cardRow/cardRow'
 import About from '../components/homepage/about/About'
 import Rewiews from '../components/homepage/reviews/reviews'
 
-
-import Search from '../components/header/search'
-// import PromotionsGallery from '../components/homepage/promotionsGallery'
+import { connect } from 'react-redux'
+import { toggleDarkMode } from '../state/app'
 
 const query = graphql`
 {
@@ -74,7 +73,7 @@ fragment productsFields on StrapiProduct {
 `;
 
 
-const Homepage = () => {
+const Homepage = ({ isDarkMode, dispatch }) => {
   const data = useStaticQuery(query)
   console.log(data.hp.about)
 
@@ -82,12 +81,18 @@ const Homepage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      {/* <Search /> */}
-      <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} />
+      <button
+        style={isDarkMode ? { background: 'black', color: `white` } : null}
+        onClick={() => dispatch(toggleDarkMode(!isDarkMode))}
+      >add to cart</button>      <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} />
       <CardRow cards={data.ldsp.edges} name="ЛДСП" slug='ldsp' />
       <Rewiews reviews={data.hp.reviews} />
       <About about={data.hp.about} />
     </Layout>)
 }
 
-export default Homepage
+// export default Homepage
+export default connect(state => ({
+  isDarkMode: state.app.isDarkMode
+}), null)(Homepage)
+

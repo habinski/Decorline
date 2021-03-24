@@ -1,14 +1,12 @@
 import React, { useState, useContext } from 'react'
 import { Link, navigate } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { useShoppingCart } from 'use-shopping-cart'
 
-import { CartContext } from '../../context/CartContext'
 
 import { cardboard, cover, title, info, price, buy } from './cardItem.module.scss'
-
 const Card = ({ card }) => {
-	const [qty, setQty] = useState(1)
-	const { addToCart } = useContext(CartContext)
+	const { addItem } = useShoppingCart()
 
 	return (
 		<div className={cardboard}>
@@ -17,9 +15,10 @@ const Card = ({ card }) => {
 			<div className={info}>
 				<p className={price}>{card.node.price + ' ₴'}</p>
 				<div className={buy}>
-					<input type="number" value={qty} onChange={(event) => setQty(event.target.value)} />
+					<input type="number" />
 					<button
-						onClick={() => addToCart(card, qty)}
+						onClick={() => addItem(card.node)}
+
 					>add to cart</button>
 				</div></div>
 		</div>
