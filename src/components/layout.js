@@ -3,7 +3,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 //
-import { DebugCart } from 'use-shopping-cart'
+// import { DebugCart } from 'use-shopping-cart'
 //
 import Header from "./header/header"
 import Footer from "./footer/footer"
@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <DebugCart />
+      {/* <DebugCart /> */}
       <Header />
       <main>{children}</main>
       <Footer />

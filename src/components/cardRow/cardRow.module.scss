@@ -1,4 +1,4 @@
-@import '../../../styles/_variables';
+@import '../../styles/_variables';
 .cardsRowDiv {
     margin: 14vh 0;
     .quote {
@@ -36,7 +36,7 @@
         .carousel {
             display: flex;
             width: max-content;
-            padding: 7vh 7vh;
+            padding: 3vh 7vh;
             flex-wrap: nowrap;
             flex-direction: row;
             gap: 7vh;

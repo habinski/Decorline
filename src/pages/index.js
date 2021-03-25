@@ -6,12 +6,12 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 
-import CardRow from '../components/homepage/cardRow/cardRow'
+import CardRow from '../components/cardRow/cardRow'
 import About from '../components/homepage/about/About'
 import Rewiews from '../components/homepage/reviews/reviews'
 
 import { connect } from 'react-redux'
-import { toggleDarkMode } from '../state/app'
+// import { toggleDarkMode } from '../state/app'
 
 const query = graphql`
 {
@@ -42,34 +42,7 @@ const query = graphql`
       }
     }
   }
-  ldsp: allStrapiProduct(limit: 10, sort: {order: DESC, fields: published_at}, filter: {category: {category: {}, slug: {eq: "ldsp"}}}) {
-    edges {
-      node {
-        ...productsFields
-      }
-    }
-  }
 }
-
-fragment productsFields on StrapiProduct {
-  category {
-    category
-    id
-    slug
-  }
-  strapiId
-  slug
-  price
-  id
-  title
-  cover {
-    childImageSharp {
-      gatsbyImageData(layout: CONSTRAINED, height: 1920)
-      id
-    }
-  }
-}
-
 `;
 
 
@@ -81,18 +54,31 @@ const Homepage = ({ isDarkMode, dispatch }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <button
-        style={isDarkMode ? { background: 'black', color: `white` } : null}
-        onClick={() => dispatch(toggleDarkMode(!isDarkMode))}
-      >add to cart</button>      <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} />
-      <CardRow cards={data.ldsp.edges} name="ЛДСП" slug='ldsp' />
+      <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} />
+      <CardRow title='Ознайомтесь з каталогом' name="ЛДСП" slug='ldsp' />
       <Rewiews reviews={data.hp.reviews} />
       <About about={data.hp.about} />
     </Layout>)
 }
 
-// export default Homepage
-export default connect(state => ({
-  isDarkMode: state.app.isDarkMode
-}), null)(Homepage)
+export default Homepage
 
+/*
+
+todo:
+
+1. Aдаптація під телефони для банера
+2. Розміри шрифтів та типографіка
+3. Розміри карточок товарів та кнопки покупки
+4. Кнопка покупки з сторінки продукту
+5. Стилізаціяя <About/>
+6. Стилі та розміри кнопок в Heder
+7. Центровка в Footer
+8. Стрілочка "Усі" в CardRow
+9. Сторінки для "Про Decorline", "Як ми працюємо", "Доставка" та їх розділи в Страпі
+10. Сторінка та фільтри в категоріях
+11. Логіка магазина
+12. Sidemenu для кошика
+13. Сторінка замовлення та пуш в адмінку
+
+*/

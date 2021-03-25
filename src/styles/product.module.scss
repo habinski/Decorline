@@ -1,0 +1,54 @@
+@import './_variables';
+.galleryBlock {
+    width: 100%;
+}
+
+.mainProduct {
+    margin: 0 $side-white-space;
+    h1 {
+        margin: 60px 0 40px;
+        text-align: center;
+    }
+}
+
+.mainInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $side-white-space;
+}
+
+.infoBlock {
+    h5 {
+        font-size: 24px;
+        margin-bottom: 14px;
+    }
+    table {
+        width: 100%;
+        border-spacing: 0;
+        tr {
+            transition: .3s;
+            &:hover {
+                background-color: #85858518;
+            }
+        }
+        td {
+            border-bottom: 1px solid #85858573;
+            padding: 7px 0;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .tdArgument {
+            width: 35%;
+        }
+        .tdValue {
+            font-weight: 600;
+        }
+    }
+}
+
+@media(max-width: 760px) {
+    .mainInfo {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

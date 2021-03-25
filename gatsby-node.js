@@ -19,20 +19,62 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(
     `{
-			products: allStrapiProduct(sort: {order: DESC, fields: published_at}) {
-			  edges {
-				node {
-				  title
-				  slug
-				  strapiId
-				  category {
-					slug
-				  }
-				}
-			  }
-			}
-		  }
-		  `
+      products: allStrapiProduct(sort: {order: DESC, fields: published_at}) {
+        edges {
+          node {
+            title
+            slug
+            strapiId
+            category {
+              category
+              slug
+              id
+            }
+            cover {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, height: 1200)
+              }
+            }
+            gallery {
+              image {
+                childImageSharp {
+                  gatsbyImageData(layout: CONSTRAINED, height: 1200)
+                }
+              }
+            }
+            information {
+              argument
+              id
+              value
+            }
+
+            #product gallery sector
+            galleryCover: cover {
+              childImageSharp {
+                original {
+                  src
+                }
+                resize(width: 500) {
+                  src
+                }
+              }
+            }
+            galleryImages: gallery {
+              image {
+                childImageSharp {
+                  original {
+                    src
+                  }
+                  resize(width: 500) {
+                    src
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }`
   )
 
   if (result.errors) {
@@ -40,13 +82,11 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   result.data.products.edges.forEach(product => {
-    const id = product.node.strapiId
-    console.log(id)
     createPage({
       path: `/${product.node.category.slug}/${product.node.slug}`,
       component: require.resolve("./src/templates/product.js"),
       context: {
-        id: id,
+        product: product,
       },
     })
   })

@@ -1,4 +1,5 @@
 @import './_variables';
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
 * {
     margin: 0;
     padding: 0;
@@ -19,4 +20,26 @@ html {
 
 main {
     // margin: 0 7vh;
+}
+
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+    height: 60px;
+    width: 30px;
+}
+
+.image-gallery-fullscreen-button,
+.image-gallery-play-button {
+    bottom: 0;
+    padding: 10px;
+}
+
+.image-gallery-fullscreen-button .image-gallery-svg,
+.image-gallery-play-button .image-gallery-svg {
+    height: 30px;
+    width: 30px;
+}
+
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+    max-height: 100%;
 }

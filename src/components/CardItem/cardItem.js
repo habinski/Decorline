@@ -1,15 +1,15 @@
-import React, { useState, useContext } from 'react'
+import React from 'react'
 import { Link, navigate } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { useShoppingCart } from 'use-shopping-cart'
+// import { useShoppingCart } from 'use-shopping-cart'
 
 
 import { cardboard, cover, title, info, price, buy } from './cardItem.module.scss'
 const Card = ({ card }) => {
-	const { addItem } = useShoppingCart()
+	// const { addItem } = useShoppingCart()
 
 	return (
-		<div className={cardboard}>
+		<div className={cardboard} key={card.node.strapiId}>
 			<GatsbyImage image={card.node.cover.childImageSharp.gatsbyImageData} className={cover} onClickCapture={() => navigate(`${card.node.category.slug}/${card.node.slug}`)} />
 			<Link to={`${card.node.category.slug}/${card.node.slug}`} className={title}>{card.node.title}</Link>
 			<div className={info}>
@@ -17,7 +17,7 @@ const Card = ({ card }) => {
 				<div className={buy}>
 					<input type="number" />
 					<button
-						onClick={() => addItem(card.node)}
+					// onClick={() => addItem(card.node)}
 
 					>add to cart</button>
 				</div></div>

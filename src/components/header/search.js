@@ -53,7 +53,7 @@ const Search = () => {
 		});
 	};
 	const products = state.query ? state.filteredProducts : allProducts;
-	console.log(products)
+
 	return (
 		<>
 			<SearchIcon className={SearchBtn} onClick={() => setSearchToggle(!searchToggle)} />
@@ -71,7 +71,7 @@ const Search = () => {
 						products.map(product => {
 							const { slug, category, cover, title } = product.node
 							return (
-								<Link to={`${category.slug}/${slug}`} className={searchItemResult}>
+								<Link to={`${category.slug}/${slug}`} className={searchItemResult} key={slug}>
 									<GatsbyImage className={itemCover} image={cover.childImageSharp.gatsbyImageData} />
 									<p className={itemTitle}>{title}</p>
 								</Link>
