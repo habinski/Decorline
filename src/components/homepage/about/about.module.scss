@@ -1,3 +1,4 @@
+@import '../../../styles/_variables';
 .aboutSection {
     margin: 15vh 10vw;
     h2 {
@@ -16,5 +17,8 @@
                 grid-template-columns: 1fr;
             }
         }
+    }
+    .image {
+        @include card;
     }
 }
