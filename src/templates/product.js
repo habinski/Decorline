@@ -21,11 +21,10 @@ const Product = ({ pageContext }, location) => {
 			original: image.image.childImageSharp.original.src,
 			thumbnail: image.image.childImageSharp.resize.src
 		})
-		console.log(pageContext.product.node)
 	})
 
 
-	console.log(information)
+	console.log(gallery)
 	return (
 		<Layout>
 			<div className={mainProduct}>

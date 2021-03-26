@@ -37,7 +37,7 @@ const Footer = () => {
 					<h5>Компанія</h5>
 					<div className={items}>
 						<Link to='/about'>Про Decorline</Link>
-						<Link to='/how-we-works'>Як ми працюємо</Link>
+						<Link to='/how-it-works'>Як ми працюємо</Link>
 						<Link to='/delivery'>Доставка</Link></div>
 				</div>
 				<div className={items}>

@@ -10,8 +10,8 @@ const Card = ({ card }) => {
 
 	return (
 		<div className={cardboard} key={card.node.strapiId}>
-			<GatsbyImage image={card.node.cover.childImageSharp.gatsbyImageData} className={cover} onClickCapture={() => navigate(`${card.node.category.slug}/${card.node.slug}`)} />
-			<Link to={`${card.node.category.slug}/${card.node.slug}`} className={title}>{card.node.title}</Link>
+			<GatsbyImage image={card.node.cover.childImageSharp.gatsbyImageData} className={cover} onClickCapture={() => navigate(`/${card.node.category.slug}/${card.node.slug}`)} />
+			<Link to={`/${card.node.category.slug}/${card.node.slug}`} className={title}>{card.node.title}</Link>
 			<div className={info}>
 				<p className={price}>{card.node.price + ' ₴'}</p>
 				<div className={buy}>

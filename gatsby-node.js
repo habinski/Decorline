@@ -47,14 +47,12 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               value
             }
-
-            #product gallery sector
             galleryCover: cover {
               childImageSharp {
                 original {
                   src
                 }
-                resize(width: 500) {
+                resize(width: 540) {
                   src
                 }
               }
@@ -65,7 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   original {
                     src
                   }
-                  resize(width: 500) {
+                  resize(width: 540) {
                     src
                   }
                 }
@@ -74,7 +72,8 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-    }`
+    }
+    `
   )
 
   if (result.errors) {

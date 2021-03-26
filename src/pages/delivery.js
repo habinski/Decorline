@@ -21,10 +21,10 @@ const PrivacyPolicy = ({ data }) => (
 	<Layout>
 		<SEO title="Доставка" />
 		<section className={content}>
-			<h1 className={title}>{data.strapiPrivacyPolicy.title}</h1>
-			<h5 className={actualization}>Остання актуалізація: <time>{data.strapiPrivacyPolicy.updated_at}</time></h5>
+			<h1 className={title}>{data.strapiDelivery.title}</h1>
+			<h5 className={actualization}>Остання актуалізація: <time>{data.strapiDelivery.updated_at}</time></h5>
 			<div className={text}>
-				<ReactMarkdown>{data.strapiPrivacyPolicy.content}</ReactMarkdown>
+				<ReactMarkdown>{data.strapiDelivery.content}</ReactMarkdown>
 			</div>
 		</section>
 	</Layout>

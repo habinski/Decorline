@@ -48,7 +48,7 @@ const CardRow = ({ title, name, slug }) => {
 	return (
 		<section className={cardsRowDiv}>
 			<div className={quote}>
-				<h2>{title} <Link to={`${slug}`} className={categoryName}>{name}</Link></h2>
+				<h2>{title} <Link to={`/${slug}`} className={categoryName}>{name}</Link></h2>
 				<Link to={`${slug}`}>Усі</Link></div>
 			<div className={cardsDiv}>
 				<div className={carousel}>
