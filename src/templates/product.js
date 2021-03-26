@@ -32,7 +32,7 @@ const Product = ({ pageContext }, location) => {
 				<h1>{title}</h1>
 				<section className={mainInfo}>
 					<div className={galleryBlock}>
-						<ImageGallery items={gallery} showPlayButton={false} />
+						<ImageGallery showBullets={true} items={gallery} showPlayButton={false} useBrowserFullscreen={false} />
 					</div>
 					<div className={infoBlock}>
 						<h5>Інформація</h5>

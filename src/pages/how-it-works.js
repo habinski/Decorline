@@ -7,26 +7,27 @@ import SEO from "../components/seo"
 import { content, text, title, actualization } from '../styles/infoPages.module.scss'
 
 export const query = graphql`
-  {
-	strapiTermsOfUse {
+{
+	strapiHowItWorks {
 	  updated_at(formatString: "DD.MM.YYYY")
 	  content
 	  title
 	}
   }
+  
   `
 
-const TermsOfUse = ({ data }) => (
+const PrivacyPolicy = ({ data }) => (
 	<Layout>
-		<SEO title="Правила користовання" />
+		<SEO title="Як ми працюємо" />
 		<section className={content}>
-			<h1 className={title}>{data.strapiTermsOfUse.title}</h1>
-			<h5 className={actualization}>Остання актуалізація: <time>{data.strapiTermsOfUse.updated_at}</time></h5>
+			<h1 className={title}>{data.strapiPrivacyPolicy.title}</h1>
+			<h5 className={actualization}>Остання актуалізація: <time>{data.strapiPrivacyPolicy.updated_at}</time></h5>
 			<div className={text}>
-				<ReactMarkdown>{data.strapiTermsOfUse.content}</ReactMarkdown>
+				<ReactMarkdown>{data.strapiPrivacyPolicy.content}</ReactMarkdown>
 			</div>
 		</section>
 	</Layout>
 )
 
-export default TermsOfUse
+export default PrivacyPolicy

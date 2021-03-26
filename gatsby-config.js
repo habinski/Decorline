@@ -56,13 +56,16 @@ module.exports = {
       singleTypes: [
         "homepage",
         "privacy-policy",
-        "terms-of-use"
+        "terms-of-use",
+        "delivery",
+        "how-it-works",
+        "about"
       ],
       // Possibility to login with a strapi user, when content types are not publically available (optional).
-      // loginData: {
-      //   identifier: process.env.API_EMAIL,
-      //   password: process.env.API_PASSWORD,
-      // },
+      loginData: {
+        identifier: process.env.API_EMAIL,
+        password: process.env.API_PASSWORD,
+      },
     },
   },
 
