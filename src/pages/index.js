@@ -9,26 +9,18 @@ import Layout from "../components/layout"
 import CardRow from '../components/cardRow/cardRow'
 import About from '../components/homepage/about/About'
 import Rewiews from '../components/homepage/reviews/reviews'
-import CardRows from '../components/CardRows/CardRows'
-
-// import { toggleDarkMode } from '../state/app'
 
 
 
 const Homepage = ({ data }) => {
-
-  // console.log(data.hp.about)
-
-
   return (
     <Layout>
       <SEO title="Home" />
       <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} style={{ minHeight: `400px` }} />
-      {/* <CardRows title='Ознайомтеся з пропоцизіями в категорії ' /> */}
       <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.ldspRow} category="ЛДСП" slug='ldsp' />
       <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.mdfRow} category="МДФ" slug='mdf' />
       <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.poslugiRow} category="Послуг" slug='poslugi' />
-      {/* <CardRow title='Ознайомтеся з пропоцизіями в категорії ' slug='ldsp' /> */}
+
       <Rewiews reviews={data.hp.reviews} />
       <About about={data.hp.about} />
     </Layout>)
@@ -141,4 +133,5 @@ todo:
 13. Сторінка замовлення та пуш в адмінку
 14. shortcuts
 // 15. фавікони
+16. SEO
 */
