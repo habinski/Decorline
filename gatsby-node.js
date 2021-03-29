@@ -24,6 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             title
             slug
+            id
             strapiId
             category {
               category
@@ -86,6 +87,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: require.resolve("./src/templates/product.js"),
       context: {
         product: product,
+        id: product.node.id,
+        category: product.node.category.slug,
       },
     })
   })

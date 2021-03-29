@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 // import { GatsbyImage } from 'gatsby-plugin-image'
 import ImageGallery from 'react-image-gallery';
 import SEO from "../components/seo"
@@ -7,8 +7,59 @@ import Layout from "../components/layout"
 import CardRow from '../components/cardRow/cardRow'
 import { galleryBlock, mainInfo, infoBlock, info, mainProduct, tdArgument, tdValue } from "../styles/product.module.scss"
 
-const Product = ({ pageContext }, location) => {
+
+export const query = graphql`
+query ($slug: String) {
+	moreProducts: allStrapiProduct(
+	  filter: {category: {slug: {eq: $slug}}}
+	  limit: 15
+	  sort: {order: DESC, fields: published_at}
+	) {
+	  edges {
+		node {
+		  ...cardRow
+		}
+	  }
+	}
+	poslugi: allStrapiProduct(
+	  filter: {category: {slug: {eq: "poslugi"}}}
+	  limit: 15
+	  sort: {order: DESC, fields: published_at}
+	) {
+	  edges {
+		node {
+		  ...cardRow
+		}
+	  }
+	}
+  }
+  
+  fragment cardRow on StrapiProduct {
+	category {
+	  category
+	  id
+	  slug
+	}
+	strapiId
+	slug
+	price
+	id
+	title
+	cover {
+	  childImageSharp {
+		gatsbyImageData(layout: CONSTRAINED, height: 1920)
+		id
+	  }
+	}
+  }
+  
+`
+
+
+const Product = ({ pageContext, data }) => {
 	// const data = useStaticQuery(query)
+	console.log('!!!!!!!!')
+	console.log(data)
 	const { title, galleryCover, galleryImages, information, } = pageContext.product.node
 	let gallery = [
 		{
@@ -22,9 +73,6 @@ const Product = ({ pageContext }, location) => {
 			thumbnail: image.image.childImageSharp.resize.src
 		})
 	})
-
-
-	console.log(gallery)
 	return (
 		<Layout>
 			<div className={mainProduct}>
@@ -54,7 +102,8 @@ const Product = ({ pageContext }, location) => {
 					</div>
 				</section>
 			</div>
-			<CardRow title='Подібні товари в категорії' name="ЛДСП" slug='ldsp' />
+			<CardRow title='Більше товарів з категорії' category="ЛДСП" slug={pageContext.slug} data={data.moreProducts} />
+			<CardRow title="Пов'язані " category="послуги" slug='poslugi' data={data.poslugi} />
 		</Layout>
 	)
 }
