@@ -3,7 +3,7 @@ import React, { useState } from "react"
 // import * as JsSearch from "js-search"
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { searchBlock, searchItemResult, itemCover, itemTitle, results, openSearch, SearchBtn } from './search.module.scss'
+import { searchBlock, searchItemResult, itemCover, itemTitle, results, openSearch, SearchBtn, notFoundText } from './search.module.scss'
 
 import SearchIcon from '../../images/icons/SearchIcon.svg'
 const query = graphql`
@@ -77,6 +77,7 @@ const Search = () => {
 								</Link>
 							)
 						})}
+					<p className={notFoundText}>Якщо ви не знайшли те що шукали – спробуйте перевірити пошуковий запит</p>
 				</div>
 			</div>
 		</>

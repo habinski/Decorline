@@ -28,6 +28,10 @@
     &::-webkit-scrollbar {
         display: none;
     }
+    .notFoundText {
+        color: $text-white;
+        font-weight: 400;
+    }
 }
 
 .searchItemResult {
