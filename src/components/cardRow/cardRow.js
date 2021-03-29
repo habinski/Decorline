@@ -2,8 +2,8 @@ import React from 'react'
 import gatsby, { Link, useStaticQuery, graphql } from 'gatsby'
 
 import Card from '../CardItem/cardItem'
-import { cardsRowDiv, quote, categoryName, cardsDiv, carousel } from './cardRow.module.scss'
-
+import { cardsRowDiv, quote, categoryName, cardsDiv, carousel, allBtn } from './cardRow.module.scss'
+import ArrowIcon from '../../images/icons/arrow.svg'
 const query = graphql`
 query cardRow($slug: String) {
 	products: allStrapiProduct(
@@ -50,7 +50,7 @@ const CardRow = ({ title, name, slug = '' }) => {
 		<section className={cardsRowDiv}>
 			<div className={quote}>
 				<h2>{title} <Link to={`/${slug}`} className={categoryName}>{name}</Link></h2>
-				<Link to={`${slug}`}>Усі</Link></div>
+				<Link className={allBtn} to={`${slug}`}>Усі<ArrowIcon /></Link></div>
 			<div className={cardsDiv}>
 				<div className={carousel}>
 					{cardsRow}

@@ -13,17 +13,34 @@
         h2 {
             font-weight: 600;
         }
-        .categoryName {
-            color: $dominant;
-            font-weight: 800;
-        }
         a {
             text-decoration: none;
             color: $text-gray;
             font-weight: 400;
             // display: flex;
             align-self: center;
-            // justify-self: center;
+            // justify-self: center; 
+            transition: 0.3s !important;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        .categoryName {
+            color: $dominant;
+            font-weight: 800;
+        }
+    }
+    .allBtn {
+        display: flex;
+        flex-direction: row;
+        gap: 3px;
+        svg {
+            // background-color: red;
+            path {
+                stroke: $text-gray;
+                stroke-width: 1;
+            }
+            height: 18px;
         }
     }
     .cardsDiv {
