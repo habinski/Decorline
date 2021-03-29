@@ -39,7 +39,8 @@ query cardRow($slug: String) {
 
 const CardRow = ({ title, name, slug }) => {
 	const data = useStaticQuery(query)
-	console.log(data)
+	// console.log(slug)
+	// console.log(data)
 	const cardsRow = data.products.edges.map(card => {
 		return <Card card={card} key={card.strapiId} />
 	})

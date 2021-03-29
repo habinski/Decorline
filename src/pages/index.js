@@ -9,6 +9,7 @@ import Layout from "../components/layout"
 import CardRow from '../components/cardRow/cardRow'
 import About from '../components/homepage/about/About'
 import Rewiews from '../components/homepage/reviews/reviews'
+import CardRows from '../components/CardRows/CardRows'
 
 // import { toggleDarkMode } from '../state/app'
 
@@ -45,16 +46,16 @@ const query = graphql`
 `;
 
 
-const Homepage = ({ isDarkMode, dispatch }) => {
+const Homepage = () => {
   const data = useStaticQuery(query)
-  console.log(data.hp.about)
+  // console.log(data.hp.about)
 
 
   return (
     <Layout>
       <SEO title="Home" />
       <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} style={{ minHeight: `400px` }} />
-      <CardRow title='Ознайомтесь з каталогом' name="ЛДСП" slug='ldsp' />
+      <CardRows title='Ознайомтеся з пропоцизіями в категорії ' />
       <Rewiews reviews={data.hp.reviews} />
       <About about={data.hp.about} />
     </Layout>)
@@ -80,4 +81,5 @@ todo:
 12. Sidemenu для кошика
 13. Сторінка замовлення та пуш в адмінку
 14. shortcuts
+15. фавікони
 */
