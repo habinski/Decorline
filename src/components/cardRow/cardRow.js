@@ -33,12 +33,12 @@ query cardRow($slug: String) {
 	  }
 	}
   }
-  
+
 `
 
 
-const CardRow = ({ title, name, slug }) => {
-	const data = useStaticQuery(query)
+const CardRow = ({ title, name, slug = '' }) => {
+	let data = useStaticQuery(query)
 	// console.log(slug)
 	// console.log(data)
 	const cardsRow = data.products.edges.map(card => {

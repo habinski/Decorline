@@ -1,0 +1,26 @@
+@import './_variables';
+.notFound {
+    min-height: 60vh;
+    display: grid;
+    gap: 15px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-weight: 800;
+    height: max-content;
+    h1 {
+        height: max-content;
+        font-size: 175px;
+        color: $dominant;
+    }
+    a {
+        height: max-content;
+        width: max-content;
+        max-width: 75vw;
+        padding: 14px 7px;
+        text-decoration: none;
+        @include card;
+        color: $text-white;
+        background-color: $dark;
+    }
+}
