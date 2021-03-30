@@ -7,6 +7,75 @@ import Layout from "../components/layout"
 import CardRow from '../components/cardRow/cardRow'
 import { galleryBlock, mainInfo, infoBlock, info, mainProduct, tdArgument, tdValue } from "../styles/product.module.scss"
 
+import { useCart } from 'react-use-cart'
+
+
+
+
+
+const Product = ({ pageContext, data }) => {
+	const { addItem, items, removeItem } = useCart()
+	// const data = useStaticQuery(query)
+	// console.log('!!!!!!!!')
+	// console.log(data)
+
+
+	// addItem(pageContext.product.node, 1)
+	console.log('items:')
+	console.log(items)
+	const { title, galleryCover, galleryImages, information, } = pageContext.product.node
+	let gallery = [
+		{
+			original: galleryCover.childImageSharp.original.src,
+			thumbnail: galleryCover.childImageSharp.resize.src
+		}]
+
+	galleryImages.map(image => {
+		gallery.push({
+			original: image.image.childImageSharp.original.src,
+			thumbnail: image.image.childImageSharp.resize.src
+		})
+	})
+	return (
+		<Layout>
+			<div className={mainProduct}>
+				<h1>{title}</h1>
+
+				<section className={mainInfo}>
+					<div className={galleryBlock}>
+						<ImageGallery showBullets={true} items={gallery} showPlayButton={false} useBrowserFullscreen={false} />
+					</div>
+					<div className={infoBlock}>
+						<h5>Інформація</h5>
+						<table>
+							<tbody>
+								{information.map(i => {
+									return (
+										<tr>
+											<td className={tdArgument}>
+												{i.argument}
+											</td>
+											<td className={tdValue}>
+												{i.value}
+											</td>
+										</tr>
+									)
+								})}
+							</tbody>
+						</table>
+					</div>
+					<button onClick={() => addItem(pageContext.product.node)}>ADD TO CART</button>
+					<button onClick={() => removeItem(pageContext.product.node.id)}>Delete</button>
+				</section>
+			</div>
+			<CardRow title='Більше товарів з категорії' category="ЛДСП" slug={pageContext.slug} data={data.moreProducts} />
+			<CardRow title="Пов'язані " category="послуги" slug='poslugi' data={data.poslugi} />
+		</Layout>
+	)
+}
+
+export default Product
+
 
 export const query = graphql`
 query ($slug: String) {
@@ -55,57 +124,3 @@ query ($slug: String) {
   
 `
 
-
-const Product = ({ pageContext, data }) => {
-	// const data = useStaticQuery(query)
-	console.log('!!!!!!!!')
-	console.log(data)
-	const { title, galleryCover, galleryImages, information, } = pageContext.product.node
-	let gallery = [
-		{
-			original: galleryCover.childImageSharp.original.src,
-			thumbnail: galleryCover.childImageSharp.resize.src
-		}]
-
-	galleryImages.map(image => {
-		gallery.push({
-			original: image.image.childImageSharp.original.src,
-			thumbnail: image.image.childImageSharp.resize.src
-		})
-	})
-	return (
-		<Layout>
-			<div className={mainProduct}>
-				<h1>{title}</h1>
-				<section className={mainInfo}>
-					<div className={galleryBlock}>
-						<ImageGallery showBullets={true} items={gallery} showPlayButton={false} useBrowserFullscreen={false} />
-					</div>
-					<div className={infoBlock}>
-						<h5>Інформація</h5>
-						<table>
-							<tbody>
-								{information.map(i => {
-									return (
-										<tr>
-											<td className={tdArgument}>
-												{i.argument}
-											</td>
-											<td className={tdValue}>
-												{i.value}
-											</td>
-										</tr>
-									)
-								})}
-							</tbody>
-						</table>
-					</div>
-				</section>
-			</div>
-			<CardRow title='Більше товарів з категорії' category="ЛДСП" slug={pageContext.slug} data={data.moreProducts} />
-			<CardRow title="Пов'язані " category="послуги" slug='poslugi' data={data.poslugi} />
-		</Layout>
-	)
-}
-
-export default Product

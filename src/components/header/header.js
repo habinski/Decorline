@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
-
+import { useCart } from 'react-use-cart'
 // import Search from './search'
 
 import Logo from '../../images/logos/inline-logo.svg'
@@ -28,6 +28,7 @@ const query = graphql`
 
 
 const Header = () => {
+	const { totalUniqueItems } = useCart()
 	const data = useStaticQuery(query)
 	const [toggle, setToggle] = useState(false)
 	// const [searchToggle, setSearchToggle] = useState(false)
@@ -46,7 +47,7 @@ const Header = () => {
 				<div className={categoriesDiv}>
 					{categories}
 
-					<Link to='/cart'><CardIcon /></Link>
+					<Link to='/cart'><CardIcon />({totalUniqueItems})</Link>
 					<Search />
 				</div>
 				<div className={mobileNav}>

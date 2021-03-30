@@ -24,6 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             title
             slug
+            price
             id
             strapiId
             category {
