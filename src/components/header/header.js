@@ -9,7 +9,7 @@ import CardIcon from '../../images/icons/card.svg'
 import Burger from '../../images/icons/burger.svg'
 import SearchIcon from '../../images/icons/SearchIcon.svg'
 
-import { logo, link, categoriesDiv, mobileNav, butterBtn, mobileCategoriesDiv, openMenu, openSearch, closeSearch } from './header.module.scss'
+import { logo, link, categoriesDiv, mobileNav, butterBtn, mobileCategoriesDiv, openMenu, openSearch, closeSearch, totalUnique } from './header.module.scss'
 import Search from "./search"
 
 const query = graphql`
@@ -31,10 +31,7 @@ const Header = () => {
 	const { totalUniqueItems } = useCart()
 	const data = useStaticQuery(query)
 	const [toggle, setToggle] = useState(false)
-	// const [searchToggle, setSearchToggle] = useState(false)
-	//
 
-	//
 	const categories = data.allStrapiCategory.edges.map(c => {
 		return (
 			<Link activeClassName="" to={`/category/${c.node.slug}`} key={c.node.strapiId} className={link}>{c.node.category}</Link>
@@ -47,11 +44,11 @@ const Header = () => {
 				<div className={categoriesDiv}>
 					{categories}
 
-					<Link to='/cart'><CardIcon />({totalUniqueItems})</Link>
+					<Link to='/cart' className={link}><CardIcon /><span className={totalUnique}>{totalUniqueItems}</span></Link>
 					<Search />
 				</div>
 				<div className={mobileNav}>
-					<Link to='/cart'><CardIcon /></Link>
+					<Link to='/cart'><CardIcon /><span className={totalUnique}>{totalUniqueItems}</span></Link>
 					<Search />
 
 					<Burger className={butterBtn} onClick={() => setToggle(!toggle)} />

@@ -1,0 +1,39 @@
+@import '../../styles/_variables';
+.BuyBlock {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    transition: .3s;
+    .counter {
+        justify-content: space-between;
+        transition: .3s;
+        display: flex;
+        align-items: stretch;
+        justify-items: center;
+        border: 3px solid $dark;
+        border-radius: 3px 0 0 3px;
+        min-width: 90px;
+        span {
+            font-size: 24px;
+            display: flex;
+            align-self: center;
+            padding: 5px;
+        }
+        button {
+            background-color: $text-white;
+            color: $dark;
+            border: none;
+            // height: 100%;
+            // width: 7px;
+            padding: 7px;
+            font-size: 16px;
+        }
+    }
+    .buy {
+        background-color: $text-white;
+        padding: 7px 14px;
+        border: 3px solid $dark;
+        border-width: 3px 3px 3px 0;
+        border-radius: 0 3px 3px 0;
+    }
+}

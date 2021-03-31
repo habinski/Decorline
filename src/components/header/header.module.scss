@@ -20,6 +20,21 @@ header {
     .butterBtn {
         z-index: 130;
     }
+    .totalUnique {
+        position: absolute;
+        right: -10px;
+        bottom: 0;
+        background-color: #fff;
+        color: $dark;
+        padding: 1px 7px;
+        width: 10px;
+        height: 20px;
+        text-decoration: none;
+        border-radius: 100%;
+        border: 1px solid $dark;
+        letter-spacing: 0px;
+        // line-height: 20px;
+    }
 }
 
 .mobileNav,
@@ -28,6 +43,7 @@ header {
 }
 
 .link {
+    position: relative;
     text-decoration: none;
     color: $text-white;
     font-size: 16px;
