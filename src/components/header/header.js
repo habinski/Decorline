@@ -5,12 +5,13 @@ import { useCart } from 'react-use-cart'
 // import Search from './search'
 
 import Logo from '../../images/logos/inline-logo.svg'
-import CardIcon from '../../images/icons/card.svg'
+// import CardIcon from '../../images/icons/card.svg'
 import Burger from '../../images/icons/burger.svg'
 import SearchIcon from '../../images/icons/SearchIcon.svg'
 
 import { logo, link, categoriesDiv, mobileNav, butterBtn, mobileCategoriesDiv, openMenu, openSearch, closeSearch, totalUnique } from './header.module.scss'
 import Search from "./search"
+import SideCart from "./sideCart"
 
 const query = graphql`
   query {
@@ -44,11 +45,13 @@ const Header = () => {
 				<div className={categoriesDiv}>
 					{categories}
 
-					<Link to='/cart' className={link}><CardIcon /><span className={totalUnique}>{totalUniqueItems}</span></Link>
+					{/* <Link to='/cart' className={link}><CardIcon /></Link> */}
+					<SideCart />
 					<Search />
 				</div>
 				<div className={mobileNav}>
-					<Link to='/cart'><CardIcon /><span className={totalUnique}>{totalUniqueItems}</span></Link>
+					{/* <Link to='/cart'><CardIcon /><span className={totalUnique}>{totalUniqueItems}</span></Link> */}
+					<SideCart />
 					<Search />
 
 					<Burger className={butterBtn} onClick={() => setToggle(!toggle)} />
@@ -57,7 +60,6 @@ const Header = () => {
 			</header>
 			<div className={`${mobileCategoriesDiv}  ${toggle ? openMenu : ''}`}>
 				{categories}
-
 			</div>
 
 		</>

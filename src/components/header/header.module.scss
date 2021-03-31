@@ -1,5 +1,10 @@
 @import '../../styles/_variables';
 header {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 99999;
     background-color: $dark;
     // width: calc(100% - ($side-white-space * 2));
     display: flex;
@@ -20,21 +25,6 @@ header {
     .butterBtn {
         z-index: 130;
     }
-    .totalUnique {
-        position: absolute;
-        right: -10px;
-        bottom: 0;
-        background-color: #fff;
-        color: $dark;
-        padding: 1px 7px;
-        width: 10px;
-        height: 20px;
-        text-decoration: none;
-        border-radius: 100%;
-        border: 1px solid $dark;
-        letter-spacing: 0px;
-        // line-height: 20px;
-    }
 }
 
 .mobileNav,
@@ -43,7 +33,6 @@ header {
 }
 
 .link {
-    position: relative;
     text-decoration: none;
     color: $text-white;
     font-size: 16px;
