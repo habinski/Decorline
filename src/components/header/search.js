@@ -62,7 +62,7 @@ const Search = () => {
 				<input
 					type="text"
 					aria-label="Search"
-					placeholder="Search products"
+					placeholder="Що шукаємо?"
 					value={state.query}
 					onChange={handleInputChange}
 				/>
@@ -71,13 +71,13 @@ const Search = () => {
 						products.map(product => {
 							const { slug, category, cover, title } = product.node
 							return (
-								<Link to={`${category.slug}/${slug}`} className={searchItemResult} key={slug}>
+								<Link to={`/${category.slug}/${slug}`} className={searchItemResult} key={slug}>
 									<GatsbyImage className={itemCover} image={cover.childImageSharp.gatsbyImageData} />
 									<p className={itemTitle}>{title}</p>
 								</Link>
 							)
 						})}
-					<p className={notFoundText}>Якщо ви не знайшли те що шукали – спробуйте перевірити пошуковий запит</p>
+					<p className={notFoundText}>Не знайшли те що шукали? Cпробуйте перевірити пошуковий запит</p>
 				</div>
 			</div>
 		</>

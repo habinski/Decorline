@@ -47,9 +47,9 @@
         -webkit-overflow-scrolling: touch;
         overflow-x: auto;
         scroll-snap-type: x proximity;
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        // &::-webkit-scrollbar {
+        //     display: none;
+        // }
         .carousel {
             display: flex;
             width: max-content;

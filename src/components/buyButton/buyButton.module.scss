@@ -24,8 +24,8 @@
         display: flex;
         align-items: stretch;
         justify-items: center;
-        border: 3px solid $dark;
-        border-radius: 3px 0 0 3px;
+        border: 2px solid $dark;
+        border-radius: $border-radius 0 0 $border-radius;
         min-width: 90px;
         span {
             font-size: 24px;
@@ -34,6 +34,8 @@
             padding: 5px;
         }
         button {
+            display: flex;
+            align-items: center;
             background-color: $text-white;
             color: $dark;
             border: none;
@@ -42,6 +44,10 @@
             padding: 7px;
             font-size: 16px;
             @include btnHover;
+            svg {
+                height: 20px;
+                width: 20px;
+            }
         }
     }
     .buy {
@@ -49,9 +55,9 @@
         align-items: center;
         background-color: $text-white;
         padding: 7px 14px;
-        border: 3px solid $dark;
-        border-width: 3px 3px 3px 0;
-        border-radius: 0 3px 3px 0;
+        border: 2px solid $dark;
+        border-width: 2px 2px 2px 0;
+        border-radius: 0 $border-radius $border-radius 0;
         @include btnHover;
         p {
             font-size: 18px;

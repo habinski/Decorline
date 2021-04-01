@@ -15,7 +15,7 @@ import Rewiews from '../components/homepage/reviews/reviews'
 const Homepage = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Інтернет магазин ДСП, ЛДСП та послуг" />
       <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} style={{ minHeight: `400px` }} />
       <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.ldspRow} category="ЛДСП" slug='ldsp' />
       <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.mdfRow} category="МДФ" slug='mdf' />

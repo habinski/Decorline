@@ -1,7 +1,46 @@
+@import '../../styles/_variables';
 .cartItem {
+    margin: 25px 15px;
     display: grid;
+    gap: 7px;
     grid-template-columns: 1fr 2fr;
     // background-color: red;
-    min-width: 400px;
-    .info {}
+    width: 400px;
+    @include card;
+    p {
+        span {
+            color: $text-gray
+        }
+    }
+    .removeBtn {
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+        svg {
+            // width: 20px;
+            height: 24px;
+            &>path {
+                transition: .3s;
+            }
+        }
+        &:hover {
+            svg>path {
+                fill: $text-gray
+            }
+        }
+    }
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .inline {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    a {
+        text-decoration: none;
+        color: $dark;
+        height: min-content;
+    }
 }

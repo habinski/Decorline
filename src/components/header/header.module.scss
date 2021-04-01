@@ -1,12 +1,21 @@
 @import '../../styles/_variables';
 header {
+    .categoriesDiv>svg,
+    .link,
+    .categoriesDiv>.link,
+    .categoriesDiv>span>svg,
+    .logo {
+        transition: .3s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
     position: sticky;
     right: 0;
     left: 0;
     top: 0;
     z-index: 99999;
     background-color: $dark;
-    // width: calc(100% - ($side-white-space * 2));
     display: flex;
     flex-direction: row;
     justify-content: space-between;

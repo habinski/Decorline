@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import AddToCart from '../../images/icons/AddToCart.svg'
+import MinusIcon from '../../images/icons/minus.svg'
+import PlusIcon from '../../images/icons/plus.svg'
 import { useCart } from 'react-use-cart'
 
 import { buy, counter, BuyBlock } from './buyButton.module.scss'
@@ -11,20 +13,20 @@ const BuyButton = ({ title, product }) => {
 
 
 	function whatText() {
-		// inCart(product.id) ? updateText : title
 		if (title) {
 			if (inCart(product.id) && getItem(product.id).quantity === count) {
 				return (`Додано до кошика`)
 			}
-			else if (inCart(product.id) && getItem(product.id).quantity !== count) {
-
+			else if (inCart(product.id) && getItem(product.id).quantity !== count && count !== 0) {
 				return ('Змінити у кошику')
+			}
+			else if (inCart(product.id) && count === 0) {
+				return (`Видалити з кошика`)
 			}
 			else {
 				return (`Додати у кошик`)
 			}
 		}
-
 	}
 
 	const toCart = () => {
@@ -36,9 +38,9 @@ const BuyButton = ({ title, product }) => {
 		<div className={BuyBlock}>
 			{/* <input onChange={toCart} /> */}
 			<div className={counter}>
-				<button onClick={() => setCount(count + 1)}>+</button>
+				<button onClick={() => setCount(count > 0 ? count - 1 : count)}><MinusIcon /></button>
 				<span>{count}</span>
-				<button onClick={() => setCount(count > 0 ? count - 1 : count)}>-</button>
+				<button onClick={() => setCount(count + 1)}><PlusIcon /></button>
 			</div>
 			{/* <button onClick={() => emptyCart}>del</button> */}
 			<button className={buy} onClick={toCart}>
