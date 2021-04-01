@@ -14,7 +14,8 @@
         border-radius: 12px;
     }
     .title {
-        font-size: 14px;
+        font-size: 16px;
+        margin: 12px 0;
         text-decoration: none;
         color: $dark;
     }
@@ -25,14 +26,9 @@
         align-items: center;
     }
     .price {
-        font-size: 16px;
+        font-size: 14px;
     }
     input {
         width: 100px;
-    }
-    .buy {
-        border: none;
-        width: 100px;
-        height: 100px;
     }
 }

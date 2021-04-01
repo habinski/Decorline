@@ -46,6 +46,13 @@
     }
 }
 
+.buy {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 42px 0;
+}
+
 @media(max-width: 760px) {
     .mainInfo {
         display: grid;

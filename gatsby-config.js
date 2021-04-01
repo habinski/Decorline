@@ -1,9 +1,5 @@
 require('dotenv').config()
 
-console.log(`GATSBY_API_URL ${process.env.GATSBY_API_URL}`)
-console.log(`GATSBY_API_EMAIL ${process.env.GATSBY_API_EMAIL}`)
-console.log(`GATSBY_API_PASSWORD ${process.env.GATSBY_API_PASSWORD}`)
-
 module.exports = {
   siteMetadata: {
     title: `Decorline`,
@@ -39,7 +35,7 @@ module.exports = {
       // background_color: `#131313`,
       // theme_color: `#663399`,
       display: `standalone`,
-      icon: `src/images/logos/dl-logoFUCK.svg`, // This path is relative to the root of the site.
+      icon: `src/images/logos/dl-logo.png`, // This path is relative to the root of the site.
     },
   },
   // this (optional) plugin enables Progressive Web App + Offline functionality

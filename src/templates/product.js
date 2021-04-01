@@ -5,7 +5,8 @@ import ImageGallery from 'react-image-gallery';
 import SEO from "../components/seo"
 import Layout from "../components/layout"
 import CardRow from '../components/cardRow/cardRow'
-import { galleryBlock, mainInfo, infoBlock, info, mainProduct, tdArgument, tdValue } from "../styles/product.module.scss"
+import BuyButton from '../components/buyButton/buyButton'
+import { galleryBlock, mainInfo, infoBlock, info, mainProduct, tdArgument, tdValue, buy } from "../styles/product.module.scss"
 
 import { useCart } from 'react-use-cart'
 
@@ -14,6 +15,7 @@ import { useCart } from 'react-use-cart'
 
 
 const Product = ({ pageContext, data }) => {
+
 	const { addItem, items, removeItem } = useCart()
 	// const data = useStaticQuery(query)
 	// console.log('!!!!!!!!')
@@ -38,12 +40,18 @@ const Product = ({ pageContext, data }) => {
 	})
 	return (
 		<Layout>
+			<SEO title={title} />
 			<div className={mainProduct}>
 				<h1>{title}</h1>
 
 				<section className={mainInfo}>
 					<div className={galleryBlock}>
-						<ImageGallery showBullets={true} items={gallery} showPlayButton={false} useBrowserFullscreen={false} />
+						<ImageGallery showBullets={true} items={gallery} showPlayButton={false} />
+
+						<div className={buy}>
+							<BuyButton title={true} product={pageContext.product.node} />
+						</div>
+
 					</div>
 					<div className={infoBlock}>
 						<h5>Інформація</h5>
@@ -63,9 +71,8 @@ const Product = ({ pageContext, data }) => {
 								})}
 							</tbody>
 						</table>
+
 					</div>
-					<button onClick={() => addItem(pageContext.product.node)}>ADD TO CART</button>
-					<button onClick={() => removeItem(pageContext.product.node.id)}>Delete</button>
 				</section>
 			</div>
 			<CardRow title='Більше товарів з категорії' category="ЛДСП" slug={pageContext.slug} data={data.moreProducts} />

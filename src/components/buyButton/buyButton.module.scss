@@ -1,4 +1,18 @@
 @import '../../styles/_variables';
+@mixin btnHover {
+    transition: .3s;
+    svg>path {
+        transition: .3s;
+    }
+    &:hover {
+        background-color: $dark;
+        color: $text-white;
+        svg>path {
+            fill: $text-white;
+        }
+    }
+}
+
 .BuyBlock {
     display: flex;
     flex-direction: row;
@@ -27,13 +41,23 @@
             // width: 7px;
             padding: 7px;
             font-size: 16px;
+            @include btnHover;
         }
     }
     .buy {
+        display: flex;
+        align-items: center;
         background-color: $text-white;
         padding: 7px 14px;
         border: 3px solid $dark;
         border-width: 3px 3px 3px 0;
         border-radius: 0 3px 3px 0;
+        @include btnHover;
+        p {
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding-right: 7px;
+        }
     }
 }
