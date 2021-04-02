@@ -24,9 +24,10 @@ header {
     .categoriesDiv {
         display: flex;
         flex-direction: row;
+        gap: 24px;
         justify-content: space-between;
         align-self: center;
-        width: 30vw;
+        min-width: 30vw;
     }
     .logo {
         svg {
@@ -54,7 +55,7 @@ header {
     justify-content: space-between;
 }
 
-@media(max-width: 650px) {
+@media(max-width: $small-screen-size) {
     header {
         .categoriesDiv {
             display: none;

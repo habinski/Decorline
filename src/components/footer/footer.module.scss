@@ -54,13 +54,13 @@ footer {
     }
 }
 
-@media(max-width: 992px) {
+@media(max-width: $medium-screen-size) {
     .content {
         grid-template-columns: repeat(2, auto);
     }
 }
 
-@media(max-width: 650px) {
+@media(max-width: $small-screen-size) {
     .content {
         // justify-content: center;
         align-content: center;

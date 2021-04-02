@@ -56,7 +56,7 @@ const Search = () => {
 
 	return (
 		<>
-			<SearchIcon className={SearchBtn} onClick={() => setSearchToggle(!searchToggle)} />
+			<span className={SearchBtn} onClick={() => setSearchToggle(!searchToggle)} ><SearchIcon /></span>
 
 			<div className={`${searchBlock} ${searchToggle ? openSearch : ''}`}>
 				<input

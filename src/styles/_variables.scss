@@ -3,7 +3,10 @@ $text-gray:#858585;
 $dominant:#D37F00;
 $opacity-bg-color: #00000036;
 $border-radius: 5px;
-// linear-gradient(180deg, #D37F00 0%, #DD8500 100%);
+//screen sizes According to Microsoft’s documentation: https://docs.microsoft.com/en-us/windows/uwp/design/layout/screen-sizes-and-breakpoints-for-responsive-design
+$small-screen-size: 640px;
+$medium-screen-size: 1007px;
+// $large-screen-size: 1007px;
 $dark: #131313;
 $side-white-space: 10%;
 @mixin card {
