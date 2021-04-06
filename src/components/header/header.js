@@ -35,7 +35,7 @@ const Header = () => {
 
 	const categories = data.allStrapiCategory.edges.map(c => {
 		return (
-			<Link activeClassName="" to={`/category/${c.node.slug}`} key={c.node.strapiId} className={link}>{c.node.category}</Link>
+			<Link activeClassName="" to={`/${c.node.slug}`} key={c.node.strapiId} className={link}>{c.node.category}</Link>
 		)
 	})
 	return (

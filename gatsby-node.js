@@ -74,6 +74,25 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      categories: allStrapiCategory {
+        edges {
+          node {
+            slug
+            category
+            products {
+              title
+              id
+              category
+              slug
+              cover {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+      }
     }
     `
   )
@@ -94,24 +113,13 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // categories.forEach((category, index) => {
-  // 	createPage({
-  // 		// path: `/article/${article.node.title.replace(/ /g, "-")}`,
-  // 		path: `/category/${category.node.category}`,
-  // 		component: require.resolve("./src/templates/category.js"),
-  // 		context: {
-  // 			id: category.node.strapiId,
-  // 		},
-  // 	})
-  // })
+  result.data.categories.edges.forEach(category => {
+    createPage({
+      path: `/${category.node.slug}`,
+      component: require.resolve("./src/templates/category.js"),
+      context: {
+        category: category
+      },
+    })
+  })
 }
-
-
-// categories: allStrapiCategory(sort: {order: DESC, fields: published_at}) {
-// 	edges {
-// 	  node {
-// 		category
-// 		strapiId
-// 	  }
-// 	}
-//   }

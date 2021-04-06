@@ -23,5 +23,3 @@ const Card = ({ card }) => {
 }
 
 export default Card
-
-//6:38
