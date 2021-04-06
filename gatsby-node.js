@@ -22,6 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
       products: allStrapiProduct(sort: {order: DESC, fields: published_at}) {
         edges {
           node {
+            description
             title
             slug
             price
@@ -80,6 +81,7 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
             category
             products {
+              description
               title
               id
               category

@@ -6,26 +6,16 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import CardRow from '../components/cardRow/cardRow'
 import BuyButton from '../components/buyButton/buyButton'
-import { galleryBlock, mainInfo, infoBlock, info, mainProduct, tdArgument, tdValue, buy } from "../styles/product.module.scss"
+import { galleryBlock, mainInfo, infoBlock, info, mainProduct, tdArgument, tdValue, buy, descriptionParagraph } from "../styles/product.module.scss"
 
 import { useCart } from 'react-use-cart'
-
-
-
-
 
 const Product = ({ pageContext, data }) => {
 
 	const { addItem, items, removeItem } = useCart()
-	// const data = useStaticQuery(query)
-	// console.log('!!!!!!!!')
-	// console.log(data)
-
-
-	// addItem(pageContext.product.node, 1)
 	console.log('items:')
 	console.log(items)
-	const { title, galleryCover, galleryImages, information, } = pageContext.product.node
+	const { title, galleryCover, galleryImages, information, description } = pageContext.product.node
 	let gallery = [
 		{
 			original: galleryCover.childImageSharp.original.src,
@@ -43,7 +33,6 @@ const Product = ({ pageContext, data }) => {
 			<SEO title={title} />
 			<div className={mainProduct}>
 				<h1>{title}</h1>
-
 				<section className={mainInfo}>
 					<div className={galleryBlock}>
 						<ImageGallery showBullets={true} items={gallery} showPlayButton={false} />
@@ -71,7 +60,7 @@ const Product = ({ pageContext, data }) => {
 								})}
 							</tbody>
 						</table>
-
+						<p className={descriptionParagraph}>{description}</p>
 					</div>
 				</section>
 			</div>
