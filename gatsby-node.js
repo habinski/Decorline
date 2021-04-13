@@ -85,6 +85,7 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               id
               category
+              price
               slug
               cover {
                 childImageSharp {

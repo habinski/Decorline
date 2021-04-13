@@ -26,12 +26,12 @@
         justify-items: center;
         border: 2px solid $dark;
         border-radius: $border-radius 0 0 $border-radius;
-        min-width: 90px;
+        min-width: 80px;
         span {
             font-size: 24px;
             display: flex;
             align-self: center;
-            padding: 5px;
+            padding: 5px 0;
         }
         button {
             display: flex;
@@ -45,8 +45,8 @@
             font-size: 16px;
             @include btnHover;
             svg {
-                height: 20px;
-                width: 20px;
+                height: 14px;
+                width: 14px;
             }
         }
     }

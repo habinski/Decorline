@@ -14,7 +14,7 @@ const CardRow = ({ data, category, title, slug }) => {
 
 	console.log(data.edges)
 	const cardsRow = data.edges.map(card => {
-		return <Card card={card} key={card.strapiId} />
+		return <Card card={card.node} key={card.strapiId} />
 	})
 
 

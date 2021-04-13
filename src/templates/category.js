@@ -4,21 +4,26 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CardItem from '../components/CardItem/cardItem'
+
+import { main, grid } from '../styles/category.module.scss'
+
 const Category = ({ pageContext }) => {
-	const { category, products } = pageContext.category.node
-	console.log(products)
+	const { category, products, slug } = pageContext.category.node
+	console.log(pageContext)
 	return (
 		<Layout >
 			<SEO title={category} />
-			<h1>Welcome to {category} page</h1>
-			{
-				products.map(product => {
-					return (
-						<CardItem product={product} />
-						// <p>{product.title}</p>
-					)
-				})
-			}
+			<div className={main}>
+				<h1>Welcome to {category} page</h1>
+				<div className={grid}>
+					{
+						products.map(product => {
+							return (
+								<CardItem card={product} category={slug} />
+							)
+						})
+					}
+				</div></div>
 		</Layout>
 	)
 }
