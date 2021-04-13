@@ -14,7 +14,7 @@ const Category = ({ pageContext }) => {
 		<Layout >
 			<SEO title={category} />
 			<div className={main}>
-				<h1>Welcome to {category} page</h1>
+				<h1>Товари з категорії <span>{category}</span></h1>
 				<div className={grid}>
 					{
 						products.map(product => {

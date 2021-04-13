@@ -5,6 +5,11 @@
 
 .mainProduct {
     margin: $side-white-space/2 $side-white-space;
+    width: fit-content;
+    h5 {
+        font-size: 24px;
+        margin-bottom: 14px;
+    }
 }
 
 .mainInfo {
@@ -39,8 +44,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: $side-white-space;
     margin: $side-white-space/2 0;
-    .descriptionParagraph {
-        // margin-top: $side-white-space;
+    .descriptionDiv {
         font-weight: 500;
     }
 }
@@ -48,10 +52,7 @@
 .infoBlock {
     display: grid;
     gap: $side-white-space;
-    h5 {
-        font-size: 24px;
-        margin-bottom: 14px;
-    }
+    margin-top: $side-white-space/2;
     table {
         width: 100%;
         border-spacing: 0;
@@ -91,5 +92,12 @@
     .fullInfo {
         display: grid;
         grid-template-columns: 1fr;
+        margin: $side-white-space/2 $side-white-space;
+        .descriptionDiv {
+            margin-top: $side-white-space;
+        }
+    }
+    .mainProduct {
+        margin: 0;
     }
 }

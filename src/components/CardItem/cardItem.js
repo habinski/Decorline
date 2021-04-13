@@ -4,18 +4,16 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 
 import BuyButton from '../buyButton/buyButton'
 
-import { cardboard, cover, title, info, price, buy } from './carditem.module.scss'
+import { cardboard, cover, title, info, price } from './carditem.module.scss'
 const Card = ({ card }) => {
 
 
 	return (
 		<div className={cardboard} key={card.strapiId}>
-			{/* <Link to={`/${card.category.slug}/${card.slug}`}> */}
 			<GatsbyImage image={card.cover.childImageSharp.gatsbyImageData} className={cover} onClick={() => navigate(`/${card.category.slug}/${card.slug}`)} />
-			{/* </Link> */}
 			<Link to={`/${card.category.slug}/${card.slug}`} className={title}>{card.title}</Link>
 			<div className={info}>
-				<p className={price}>{card.price + '₴/метр погонний'}</p>
+				<p className={price}>{`${card.price}₴`} <span>| метр погонний</span></p>
 				<BuyButton product={card} />
 			</div>
 		</div>

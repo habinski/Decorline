@@ -7,7 +7,7 @@ import Layout from "../components/layout"
 import CardRow from '../components/cardRow/cardRow'
 import BuyButton from '../components/buyButton/buyButton'
 import {
-	galleryBlock, mainInfo, mainInfo__items, infoBlock, infoSection, mainProduct, tdArgument, tdValue, fullInfo, priceP, descriptionParagraph
+	galleryBlock, mainInfo, mainInfo__items, infoBlock, infoSection, mainProduct, tdArgument, tdValue, fullInfo, priceP, descriptionDiv
 } from "../styles/product.module.scss"
 
 import { useCart } from 'react-use-cart'
@@ -48,10 +48,9 @@ const Product = ({ pageContext, data }) => {
 					</div>
 				</div>
 				<div className={fullInfo}>
-
 					<div className={infoBlock}>
+						<h5>Інформація</h5>
 						<table>
-							<h5>Інформація</h5>
 							<tbody>
 								{information.map(i => {
 									return (
@@ -68,9 +67,9 @@ const Product = ({ pageContext, data }) => {
 							</tbody>
 						</table>
 					</div>
-					<p className={descriptionParagraph}>{description}</p>
-
-
+					<div className={descriptionDiv}>
+						<h5></h5>
+						<p>{description}</p></div>
 				</div>
 			</section>
 			<CardRow title='Більше товарів з категорії' category="ЛДСП" slug={pageContext.slug} data={data.moreProducts} />

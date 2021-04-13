@@ -1,5 +1,17 @@
 @import './_variables';
 .main {
     margin: $side-white-space/2 $side-white-space;
-    .grid {}
+    h1 {
+        text-align: center;
+        margin-bottom: $side-white-space/2;
+        span {
+            color: $dominant
+        }
+    }
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px 36px;
+        justify-content: center;
+    }
 }
