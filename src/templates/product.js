@@ -6,7 +6,9 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import CardRow from '../components/cardRow/cardRow'
 import BuyButton from '../components/buyButton/buyButton'
-import { galleryBlock, mainInfo, infoBlock, info, mainProduct, tdArgument, tdValue, buy, descriptionParagraph } from "../styles/product.module.scss"
+import {
+	galleryBlock, mainInfo, mainInfo__items, infoBlock, infoSection, mainProduct, tdArgument, tdValue, fullInfo, priceP, descriptionParagraph
+} from "../styles/product.module.scss"
 
 import { useCart } from 'react-use-cart'
 
@@ -15,7 +17,7 @@ const Product = ({ pageContext, data }) => {
 	const { addItem, items, removeItem } = useCart()
 	console.log('items:')
 	console.log(items)
-	const { title, galleryCover, galleryImages, information, description } = pageContext.product.node
+	const { title, galleryCover, galleryImages, information, description, price } = pageContext.product.node
 	let gallery = [
 		{
 			original: galleryCover.childImageSharp.original.src,
@@ -31,20 +33,25 @@ const Product = ({ pageContext, data }) => {
 	return (
 		<Layout>
 			<SEO title={title} />
-			<div className={mainProduct}>
-				<h1>{title}</h1>
-				<section className={mainInfo}>
+
+			<section className={mainProduct}>
+				<div className={infoSection}>
 					<div className={galleryBlock}>
 						<ImageGallery showBullets={true} items={gallery} showPlayButton={false} />
-
-						<div className={buy}>
+					</div>
+					<div className={mainInfo}>
+						<div className={mainInfo__items}>
+							<h1>{title}</h1>
+							<p className={priceP}>{`${price}₴`} <span>| метр погонний</span></p>
 							<BuyButton title={true} product={pageContext.product.node} />
 						</div>
-
 					</div>
+				</div>
+				<div className={fullInfo}>
+
 					<div className={infoBlock}>
-						<h5>Інформація</h5>
 						<table>
+							<h5>Інформація</h5>
 							<tbody>
 								{information.map(i => {
 									return (
@@ -60,10 +67,12 @@ const Product = ({ pageContext, data }) => {
 								})}
 							</tbody>
 						</table>
-						<p className={descriptionParagraph}>{description}</p>
 					</div>
-				</section>
-			</div>
+					<p className={descriptionParagraph}>{description}</p>
+
+
+				</div>
+			</section>
 			<CardRow title='Більше товарів з категорії' category="ЛДСП" slug={pageContext.slug} data={data.moreProducts} />
 			<CardRow title="Пов'язані " category="послуги" slug='poslugi' data={data.poslugi} />
 		</Layout>

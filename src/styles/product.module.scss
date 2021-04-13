@@ -4,20 +4,50 @@
 }
 
 .mainProduct {
-    margin: 0 $side-white-space;
+    margin: $side-white-space/2 $side-white-space;
+}
+
+.mainInfo {
+    display: grid;
+    align-items: center;
+    .mainInfo__items {
+        display: grid;
+        justify-items: center;
+        gap: 14px;
+        margin: $side-white-space/2 0;
+    }
     h1 {
-        margin: 60px 0 40px;
         text-align: center;
     }
 }
 
-.mainInfo {
+.priceP {
+    span {
+        color: $text-gray;
+        font-weight: 500;
+    }
+}
+
+.infoSection {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: $side-white-space;
 }
 
+.fullInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $side-white-space;
+    margin: $side-white-space/2 0;
+    .descriptionParagraph {
+        // margin-top: $side-white-space;
+        font-weight: 500;
+    }
+}
+
 .infoBlock {
+    display: grid;
+    gap: $side-white-space;
     h5 {
         font-size: 24px;
         margin-bottom: 14px;
@@ -25,6 +55,7 @@
     table {
         width: 100%;
         border-spacing: 0;
+        // border: 2px solid red;
         tr {
             transition: .3s;
             &:hover {
@@ -44,21 +75,20 @@
             font-weight: 600;
         }
     }
-    .descriptionParagraph {
-        margin-top: $side-white-space;
-        font-weight: 500;
-    }
 }
 
-.buy {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 42px 0;
-}
-
+// .buy {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     margin: 42px 0;
+// }
 @media(max-width: $small-screen-size) {
-    .mainInfo {
+    .infoSection {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .fullInfo {
         display: grid;
         grid-template-columns: 1fr;
     }

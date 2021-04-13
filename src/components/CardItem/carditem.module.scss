@@ -27,6 +27,10 @@
     }
     .price {
         font-size: 14px;
+        span {
+            color: $text-gray;
+            font-weight: 500;
+        }
     }
     input {
         width: 100px;
