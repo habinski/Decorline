@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 import SEO from "../components/seo"
@@ -16,7 +16,7 @@ const Homepage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Інтернет магазин ДСП, ЛДСП та послуг" />
-      <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} style={{ minHeight: `400px` }} />
+      <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} style={{ minHeight: `400px` }} onClick={() => navigate(data.hp.banner_link)} />
       <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.ldspRow} category="ЛДСП" slug='ldsp' />
       <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.mdfRow} category="МДФ" slug='mdf' />
       <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.poslugiRow} category="Послуг" slug='poslugi' />
@@ -37,6 +37,7 @@ export const query = graphql`
         gatsbyImageData(layout: FULL_WIDTH, aspectRatio: 3.1)
       }
     }
+    banner_link
     about {
       about
       image {
