@@ -21,7 +21,45 @@
     clip-path: circle();
 }
 
+.cartItems {
+    overflow-x: auto;
+    height: 75vh;
+    width: 110%;
+}
+
+.total {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // height: 30vh;
+    margin: 0 15px;
+    // background-color: red;
+    p {
+        margin-bottom: 14px;
+    }
+    .greySpan {
+        color: $text-gray;
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .toOrder {
+        text-decoration: none;
+        text-align: center;
+        padding: 14px 7px;
+        background-color: $dark;
+        color: $text-white;
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        transition: .3s;
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
 .sideCart {
+    height: 100vh;
     opacity: 0;
     transition: .3s;
     position: fixed;
@@ -31,7 +69,6 @@
     right: -100vw;
     display: grid;
     grid-template-columns: 1fr 450px;
-    overflow-x: auto;
     // background-color: red;
     z-index: 1000;
     .side {
