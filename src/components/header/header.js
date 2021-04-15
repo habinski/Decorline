@@ -51,8 +51,8 @@ const Header = () => {
 				</div>
 				<div className={mobileNav}>
 					{/* <Link to='/cart'><CardIcon /><span className={totalUnique}>{totalUniqueItems}</span></Link> */}
-					<SideCart />
 					<Search />
+					<SideCart />
 
 					<Burger className={butterBtn} onClick={() => setToggle(!toggle)} />
 				</div>

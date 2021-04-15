@@ -11,11 +11,10 @@ const SideCart = () => {
 	const { totalUniqueItems, items, cartTotal } = useCart()
 	const [cartToggle, setCartToggle] = useState()
 
-	// console.log(items)
-
 	return (
 		<>
 			<span className={openBtn} onClick={() => setCartToggle(!cartToggle)}><CartIcon /><span className={totalUnique}>{totalUniqueItems}</span></span>
+
 			<div className={`${sideCart} ${cartToggle ? openCart : ''}`}>
 				<div className={side} onClick={() => setCartToggle(!cartToggle)}></div>
 				<div className={cart}>

@@ -7,6 +7,9 @@
     // background-color: red;
     width: 400px;
     @include card;
+    .cover {
+        border-radius: $border-radius;
+    }
     p {
         span {
             color: $text-gray

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { searchBlock, searchItemResult, itemCover, itemTitle, results, openSearch, SearchBtn, notFoundText } from './search.module.scss'
+import { sideSearch, search, searchItemResult, itemCover, itemTitle, results, openSearch, SearchBtn, cardInfo, greyText, notFoundText, side } from './search.module.scss'
 
 import SearchIcon from '../../images/icons/SearchIcon.svg'
 const query = graphql`
@@ -39,7 +39,7 @@ const Search = () => {
 	const handleInputChange = event => {
 		const query = event.target.value;
 		const filteredProducts = allProducts.filter(poduct => {
-			const { title, category } = poduct.node;
+			const { title } = poduct.node;
 
 			return (
 				title.toLowerCase().includes(query.toLowerCase())
@@ -56,27 +56,33 @@ const Search = () => {
 		<>
 			<span className={SearchBtn} onClick={() => setSearchToggle(!searchToggle)} ><SearchIcon /></span>
 
-			<div className={`${searchBlock} ${searchToggle ? openSearch : ''}`}>
-				<input
-					type="text"
-					aria-label="Search"
-					placeholder="Що шукаємо?"
-					value={state.query}
-					onChange={handleInputChange}
-				/>
-				<div className={results}>
-					{
-						products.map(product => {
-							const { slug, cover, title } = product.node
-							return (
-								<Link to={`${slug}`} className={searchItemResult} key={slug}>
-									<GatsbyImage className={itemCover} image={cover.childImageSharp.gatsbyImageData} />
-									<p className={itemTitle}>{title}</p>
-								</Link>
-							)
-						})}
-					<p className={notFoundText}>Не знайшли те що шукали? Cпробуйте перевірити пошуковий запит</p>
+
+			<div className={`${sideSearch} ${searchToggle ? openSearch : ''}`}>
+				<div className={search}>
+					<input
+						type="text"
+						aria-label="Search"
+						placeholder="Що шукаємо?"
+						value={state.query}
+						onChange={handleInputChange}
+					/>
+					<div className={results}>
+						{
+							products.map(product => {
+								const { slug, cover, title, category } = product.node
+								return (
+									<Link to={`/${slug}`} className={searchItemResult} key={slug}>
+										<GatsbyImage className={itemCover} image={cover.childImageSharp.gatsbyImageData} />
+										<div className={cardInfo}>
+											<p className={itemTitle}>{title} </p>
+											<p className={greyText}>{category.category}</p>
+										</div>
+									</Link>
+								)
+							})}
+					</div>
 				</div>
+				<div className={side} onClick={() => setSearchToggle(!searchToggle)}></div>
 			</div>
 		</>
 	)

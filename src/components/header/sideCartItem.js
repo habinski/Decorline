@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 // import BuyButton from '../../components/buyButton/buyButton'
 import RemoveItem from '../../images/icons/removeItem.svg'
 import { useCart } from 'react-use-cart'
-import { cartItem, info, removeBtn, inline } from './sideCartItem.module.scss'
+import { cartItem, info, removeBtn, inline, cover } from './sideCartItem.module.scss'
 import { Link, navigate } from 'gatsby'
 
 export default function CartItem({ product }) {
@@ -12,7 +12,7 @@ export default function CartItem({ product }) {
 	return (
 		<div className={cartItem}>
 
-			<GatsbyImage image={product.cover.childImageSharp.gatsbyImageData} onClick={() => navigate(`/${product.slug}`)} />
+			<GatsbyImage className={cover} image={product.cover.childImageSharp.gatsbyImageData} onClick={() => navigate(`/${product.slug}`)} />
 
 			<div className={info}>
 				<Link to={`/${product.slug}`}>
