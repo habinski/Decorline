@@ -9,14 +9,13 @@ import { Link, navigate } from 'gatsby'
 
 export default function CartItem({ product }) {
 	const { removeItem } = useCart()
-	console.log(product)
 	return (
 		<div className={cartItem}>
 
-			<GatsbyImage image={product.cover.childImageSharp.gatsbyImageData} onClick={() => navigate(`/${product.category.slug}/${product.slug}`)} />
+			<GatsbyImage image={product.cover.childImageSharp.gatsbyImageData} onClick={() => navigate(`/${product.slug}`)} />
 
 			<div className={info}>
-				<Link to={`/${product.category.slug}/${product.slug}`}>
+				<Link to={`/${product.slug}`}>
 					<p>{product.title}</p>
 				</Link>
 				<div className={inline}>

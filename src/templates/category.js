@@ -23,7 +23,8 @@ const Category = ({ pageContext }) => {
 							)
 						})
 					}
-				</div></div>
+				</div>
+			</div>
 		</Layout>
 	)
 }

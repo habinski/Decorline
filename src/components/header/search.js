@@ -1,6 +1,4 @@
 import React, { useState } from "react"
-// import Axios from "axios"
-// import * as JsSearch from "js-search"
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { searchBlock, searchItemResult, itemCover, itemTitle, results, openSearch, SearchBtn, notFoundText } from './search.module.scss'
@@ -69,9 +67,9 @@ const Search = () => {
 				<div className={results}>
 					{
 						products.map(product => {
-							const { slug, category, cover, title } = product.node
+							const { slug, cover, title } = product.node
 							return (
-								<Link to={`/${category.slug}/${slug}`} className={searchItemResult} key={slug}>
+								<Link to={`${slug}`} className={searchItemResult} key={slug}>
 									<GatsbyImage className={itemCover} image={cover.childImageSharp.gatsbyImageData} />
 									<p className={itemTitle}>{title}</p>
 								</Link>
