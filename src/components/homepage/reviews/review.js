@@ -19,8 +19,8 @@ const Review = (review) => {
 						{Array(review.stars).fill(<Star />)}
 					</div>
 				</div>
-				<p>{review.review}</p>
 			</div>
+			<p>{review.review}</p>
 		</div>
 	)
 }
