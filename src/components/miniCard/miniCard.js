@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 // import BuyButton from '../../components/buyButton/buyButton'
 import RemoveItem from '../../images/icons/removeItem.svg'
 import { useCart } from 'react-use-cart'
-import { cartItem, info, removeBtn, inline, cover } from './sideCartItem.module.scss'
+import { cartItem, info, removeBtn, inline, cover } from './miniCard.module.scss'
 import { Link, navigate } from 'gatsby'
 
 export default function CartItem({ product }) {

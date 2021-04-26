@@ -5,7 +5,7 @@ import CloseIcon from '../../images/icons/close.svg'
 import { useCart } from 'react-use-cart'
 
 import { totalUnique, openBtn, sideCart, side, cart, openCart, closeBtn, cartItems, total, greySpan, toOrder } from './sideCart.module.scss'
-import CartItem from "./sideCartItem"
+import CartItem from "../miniCard/miniCard"
 
 const SideCart = () => {
 	const { totalUniqueItems, items, cartTotal } = useCart()
