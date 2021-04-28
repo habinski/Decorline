@@ -5,6 +5,7 @@
     "version": "0.1.0",
     "author": "Andriy Habinski <andrii.kh@outlook.com>",
     "dependencies": {
+        "axios": "^0.21.1",
         "dotenv": "^8.2.0",
         "gatsby": "^3.0.4",
         "gatsby-image": "^3.0.0",

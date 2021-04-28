@@ -3,6 +3,8 @@ import { useCart } from 'react-use-cart'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import OrderForm from '../components/OrderForm/OrderForm'
+
 import CartItem from "../components/miniCard/miniCard"
 
 import {
@@ -40,7 +42,7 @@ const OrderPage = () => {
 							})
 						}
 						<div className={orderInfo}>
-
+							<OrderForm />
 						</div>
 					</div>
 
