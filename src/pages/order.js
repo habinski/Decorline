@@ -19,7 +19,7 @@ const OrderPage = () => {
 	const { totalUniqueItems, items, cartTotal } = useCart()
 	return (
 		<Layout>
-			<SEO />
+			<SEO title='Корзина' />
 			<main className={main}>
 				<h1>Замолвення</h1>
 				<div className={leftSection}>
