@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+console.log(process.env.GATSBY_API_URL)
 module.exports = {
   siteMetadata: {
     title: `Decorline`,
@@ -45,7 +45,7 @@ module.exports = {
   {
     resolve: `gatsby-source-strapi`,
     options: {
-      apiURL: process.env.API_URL || "http://localhost:1337",
+      apiURL: process.env.GATSBY_API_URL || "http://localhost:1337",
       queryLimit: 1000, // Default to 100
       contentTypes: [
         "category",
@@ -59,7 +59,8 @@ module.exports = {
         "terms-of-use",
         "delivery",
         "how-it-works",
-        "about"
+        "about",
+        "order-page"
       ],
       // Possibility to login with a strapi user, when content types are not publically available (optional).
       loginData: {

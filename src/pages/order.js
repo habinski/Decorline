@@ -2,7 +2,7 @@ import React from "react"
 import { useCart } from 'react-use-cart'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
+import { graphql } from 'gatsby'
 import OrderForm from '../components/OrderForm/OrderForm'
 
 import CartItem from "../components/miniCard/miniCard"
@@ -54,3 +54,11 @@ const OrderPage = () => {
 }
 
 export default OrderPage
+
+export const query = graphql`
+{
+	strapiOrderpage {
+	  cities
+	}
+  }
+  `
