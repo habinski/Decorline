@@ -1,0 +1,38 @@
+@import './_variables';
+.sections {
+    margin-top: $side-white-space/3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $side-white-space/2;
+}
+
+.main {
+    margin: $side-white-space/2 $side-white-space;
+    h1 {
+        text-align: center;
+    }
+    p {
+        font-weight: 400;
+        font-size: 16px;
+    }
+    h3 {
+        font-weight: 600;
+        font-size: 24px;
+    }
+}
+
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .orderInfo {
+        p {
+            margin: 7px 0;
+        }
+    }
+}
+
+.rightSection {
+    display: grid;
+    gap: $side-white-space/4;
+}

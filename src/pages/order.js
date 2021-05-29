@@ -1,8 +1,9 @@
 import React from "react"
+import { graphql } from "gatsby"
 import { useCart } from 'react-use-cart'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { graphql } from 'gatsby'
+
 import OrderForm from '../components/OrderForm/OrderForm'
 
 import CartItem from "../components/miniCard/miniCard"
@@ -15,25 +16,26 @@ import {
 	orderInfo,
 } from "../styles/order.module.scss"
 
-const OrderPage = () => {
+const OrderPage = ({ data }) => {
+
 	const { totalUniqueItems, items, cartTotal } = useCart()
 	return (
 		<Layout>
 			<SEO title='Корзина' />
 			<main className={main}>
 				<h1>Замолвення</h1>
-				<div className={leftSection}>
-					<div>
-						<h5>Як замовити</h5>
-						<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam itaque, quia ipsum quam nesciunt minus, laborum, asperiores esse expedita dolores ratione veniam? Facilis animi reprehenderit amet expedita laboriosam. Nihil, a.</p>
-					</div>
-					<form action="post">
-
-					</form>
-				</div>
 				<div className={sections}>
 					<div className={rightSection}>
-						<h5>Ваше замолвення:</h5>
+						<div>
+							<h3>Як замовити</h3>
+							<p>{data.strapiOrderPage.order_text}</p>
+						</div>
+						<OrderForm />
+
+					</div>
+
+					<div className={leftSection}>
+						<h3>Ваше замолвення:</h3>
 						{
 							items.map(item => {
 								return (
@@ -42,7 +44,11 @@ const OrderPage = () => {
 							})
 						}
 						<div className={orderInfo}>
-							<OrderForm />
+							<p>Вартість замолвення: {cartTotal}₴</p>
+							<p>Вартість доставки: {data.strapiOrderPage.order_price}₴</p>
+							<hr />
+							<p>Усього:<b> {data.strapiOrderPage.order_price + cartTotal}₴ </b></p>
+
 						</div>
 					</div>
 
@@ -57,8 +63,10 @@ export default OrderPage
 
 export const query = graphql`
 {
-	strapiOrderpage {
-	  cities
+	strapiOrderPage {
+	  order_price
+	  order_text
 	}
   }
+  
   `

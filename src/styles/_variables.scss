@@ -38,3 +38,17 @@ $side-white-space: 10%;
     // background-color: rgba(255, 255, 255, 0.5);
     justify-content: center;
 }
+
+@mixin btnHover {
+    transition: .3s;
+    svg>path {
+        transition: .3s;
+    }
+    &:hover {
+        background-color: $dark;
+        color: $text-white;
+        svg>path {
+            fill: $text-white;
+        }
+    }
+}

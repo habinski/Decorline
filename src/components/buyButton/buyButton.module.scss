@@ -1,18 +1,4 @@
 @import '../../styles/_variables';
-@mixin btnHover {
-    transition: .3s;
-    svg>path {
-        transition: .3s;
-    }
-    &:hover {
-        background-color: $dark;
-        color: $text-white;
-        svg>path {
-            fill: $text-white;
-        }
-    }
-}
-
 .BuyBlock {
     display: flex;
     flex-direction: row;

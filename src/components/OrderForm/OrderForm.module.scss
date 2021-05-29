@@ -1,0 +1,76 @@
+@import '../../styles/_variables';
+.mainForm {
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // height: max-content;
+    // gap: $side-white-space;
+}
+
+.dataForOrder {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.formSection {
+    margin-top: $side-white-space;
+}
+
+.fieldDiv,
+.deliveryQ {
+    margin-top: 14px;
+    display: grid;
+    label {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    input,
+    select,
+    textarea {
+        padding: 7px 14px;
+        border: 1px solid black;
+        // border-radius: 1px;
+    }
+}
+
+.errorField {
+    border: 1px solid rgb(255, 0, 0) !important;
+}
+
+.deliveryQ {
+    textarea {
+        height: 200px;
+        resize: none;
+        &::placeholder {
+            font-family: Montserrat;
+        }
+    }
+}
+
+.btnDiv {
+    margin-top: $side-white-space;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        text-align: center;
+        font-size: 12px !important;
+        // background-color: red;
+    }
+    button {
+        width: max-content;
+        margin: 14px;
+        background-color: $text-white;
+        border: 2px solid $dark;
+        padding: 12px;
+        @include btnHover;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        font-size: 18px;
+        align-items: center;
+        justify-items: center;
+        border-radius: $border-radius;
+    }
+}
