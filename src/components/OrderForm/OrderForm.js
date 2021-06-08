@@ -18,9 +18,19 @@ const OrderSchema = Yup.object().shape({
 })
 
 const OrderForm = () => {
+
 	const [jwt, setJWT] = useState(null)
-	const { items } = useCart()
-	console.log(data.strapiOrderPage)
+	// async function getJWT() {
+
+	// }
+
+	const { items, totalUniqueItems } = useCart()
+	console.log(items)
+	const receiptGenerator = () => {
+		return JSON.stringify(items, ['title', 'price', 'quantity', 'itemTotal', 'category'], `	`)
+
+	}
+
 	const query = graphql`
 {
 	strapiOrderPage {
@@ -80,26 +90,19 @@ const OrderForm = () => {
 
 			}}
 			validationSchema={OrderSchema}
+
 			onSubmit={async (values) => {
+
 				try {
-					const { data } = await axios.post(`${process.env.GATSBY_API_URL}/auth/local`, {
+					const JWYRes = await axios.post(`${process.env.GATSBY_API_URL}/auth/local`, {
 						identifier: process.env.GATSBY_API_EMAIL,
 						password: process.env.GATSBY_API_PASSWORD,
 					})
-					setJWT({
-						jwt: data.jwt
-					})
-				}
-				catch (error) {
-					alert(error)
-				}
 
-				try {
-					await axios.post(`${process.env.GATSBY_API_URL}/orders`, {
+					axios.post(`${process.env.GATSBY_API_URL}/orders`, {
 						headers: {
-							Authorization: jwt.jwt
+							Authorization: JWYRes.jwt
 						},
-
 						person: {
 							name: values.firstName,
 							surname: values.lastName,
@@ -109,23 +112,19 @@ const OrderForm = () => {
 						city: values.city,
 						address: values.address,
 						message: values.message,
-						products: items,
-						order_option: data.strapiOrderPage.order_options[values.deliveryOption - 1].name
-
+						products: receiptGenerator(),
+						order_option: data.strapiOrderPage.order_options[values.deliveryOption - 1].name.toString()
 					})
-					console.log('WOOOORK')
-				}
-				catch (error) {
+				} catch (error) {
 					alert(error)
-				};
-
+				}
 			}}
 		>
 			{({ errors, touched, values }) => (
 				<Form className={mainForm}>
 
 					<div className={formSection}>
-						<h3>Інформація для замовлення</h3>
+						<h3>Інформація до замовлення</h3>
 						<div className={dataForOrder}>
 							<div className={fieldDiv}>
 								<label htmlFor="firstName">Ім'я</label>
@@ -133,7 +132,7 @@ const OrderForm = () => {
 							</div>
 
 							<div className={fieldDiv}>
-								<label htmlFor="lastName">Фамілія</label>
+								<label htmlFor="lastName">Прізвище</label>
 								<Field id="lastName" name="lastName" placeholder="Франко" className={errors.lastName && touched.lastName ? errorField : null} />
 							</div>
 							<div className={fieldDiv}>
@@ -158,13 +157,9 @@ const OrderForm = () => {
 									</label>
 								})
 							}
-							<p>Picked: {values.deliveryOption}, aдреса потрібна: {data.strapiOrderPage.order_options[values.deliveryOption - 1].address_required.toString()} </p>
 						</div>
 					</div>
 					<AddressForm errors touched show={data.strapiOrderPage.order_options[values.deliveryOption - 1].address_required} />
-
-
-
 					<div className={formSection}>
 						<h3>Повідомлення</h3>
 						<div className={deliveryQ}>

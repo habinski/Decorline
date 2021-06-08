@@ -14,6 +14,7 @@ import {
 	rightSection,
 	leftSection,
 	orderInfo,
+	orderSection,
 } from "../styles/order.module.scss"
 
 const OrderPage = ({ data }) => {
@@ -35,6 +36,7 @@ const OrderPage = ({ data }) => {
 					</div>
 
 					<div className={leftSection}>
+						{/* <div className={orderSection}> */}
 						<h3>Ваше замолвення:</h3>
 						{
 							items.map(item => {
@@ -50,8 +52,8 @@ const OrderPage = ({ data }) => {
 							<p>Усього:<b> {data.strapiOrderPage.order_price + cartTotal}₴ </b></p>
 
 						</div>
+						{/* </div> */}
 					</div>
-
 				</div>
 			</main>
 		</Layout>

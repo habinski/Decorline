@@ -30,12 +30,12 @@
 .total {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // height: 30vh;
+    height: 15vh;
+    justify-content: center;
     margin: 0 15px;
     // background-color: red;
     p {
-        margin-bottom: 14px;
+        margin: 14px 0 7px;
     }
     .greySpan {
         color: $text-gray;
@@ -77,13 +77,19 @@
     .cart {
         background-color: #fff;
     }
-    h5 {
-        font-size: 25px;
-        font-weight: 800;
-        text-align: center;
-        padding-top: $side-white-space;
-        span {
-            // color: $text-gray;
+    .cartHead {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 10vh;
+        h5 {
+            font-size: 25px;
+            font-weight: 800;
+            // text-align: center;
+            // padding: 5vh;
+            span {
+                // color: $text-gray;
+            }
         }
     }
 }

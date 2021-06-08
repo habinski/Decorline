@@ -10,25 +10,6 @@ import CardRow from '../components/cardRow/cardRow'
 import About from '../components/homepage/about/About'
 import Rewiews from '../components/homepage/reviews/reviews'
 
-
-
-const Homepage = ({ data }) => {
-  return (
-    <Layout>
-      <SEO title="Інтернет магазин ДСП, ЛДСП та послуг" />
-      <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} style={{ minHeight: `400px` }} onClick={() => navigate(data.hp.banner_link)} />
-      <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.ldspRow} category="ЛДСП" slug='ldsp' />
-      <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.mdfRow} category="МДФ" slug='mdf' />
-      <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.poslugiRow} category="Послуг" slug='poslugi' />
-
-      <Rewiews reviews={data.hp.reviews} />
-      <About about={data.hp.about} />
-    </Layout>)
-}
-
-export default Homepage
-
-
 export const query = graphql`
 {
   hp: strapiHomepage {
@@ -114,6 +95,25 @@ fragment cardRow on StrapiProduct {
 }
 
 `;
+
+
+const Homepage = ({ data }) => {
+  return (
+    <Layout>
+      <SEO title="Інтернет магазин ДСП, ЛДСП та послуг" />
+      <GatsbyImage image={data.hp.banner.childImageSharp.gatsbyImageData} style={{ minHeight: `400px` }} onClick={() => navigate(data.hp.banner_link)} />
+      <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.ldspRow} category="ЛДСП" slug='ldsp' />
+      <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.mdfRow} category="МДФ" slug='mdf' />
+      <CardRow title='Ознайомтеся з пропоцизіями в категорії ' data={data.poslugiRow} category="Послуг" slug='poslugi' />
+
+      <Rewiews reviews={data.hp.reviews} />
+      <About about={data.hp.about} />
+    </Layout>)
+}
+
+export default Homepage
+
+
 
 /*
 

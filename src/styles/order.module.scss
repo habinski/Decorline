@@ -11,6 +11,31 @@
     h1 {
         text-align: center;
     }
+}
+
+.leftSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .orderInfo {
+        font-weight: normal;
+        p {
+            margin: 7px 0;
+        }
+    }
+}
+
+.rightSection {
+    display: flex;
+    flex-direction: column;
+    div {
+        p {
+            margin-top: 7px;
+        }
+    }
+    h1 {
+        text-align: center;
+    }
     p {
         font-weight: 400;
         font-size: 16px;
@@ -21,18 +46,9 @@
     }
 }
 
-.leftSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .orderInfo {
-        p {
-            margin: 7px 0;
-        }
+@media (max-width: $medium-screen-size) {
+    .sections {
+        display: flex;
+        flex-direction: column-reverse;
     }
-}
-
-.rightSection {
-    display: grid;
-    gap: $side-white-space/4;
 }
